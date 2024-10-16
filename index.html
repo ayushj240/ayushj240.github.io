@@ -6,18 +6,18 @@
   <meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
   <style type="text/css">
     /* Color scheme stolen from Sergey Karayev */
-    
+
     a {
       color: #1772d0;
       text-decoration: none;
     }
-    
+
     a:focus,
     a:hover {
       color: #f09228;
       text-decoration: none;
     }
-    
+
     body,
     td,
     th,
@@ -27,34 +27,34 @@
       font-family: 'Lato', Verdana, Helvetica, sans-serif;
       font-size: 15px
     }
-    
+
     strong {
       font-family: 'Lato', Verdana, Helvetica, sans-serif;
       font-size: 15px;
     }
-    
+
     heading {
       font-family: 'Lato', Verdana, Helvetica, sans-serif;
       font-size: 24px;
     }
-    
+
     papertitle {
       font-family: 'Lato', Verdana, Helvetica, sans-serif;
       font-size: 15px;
       font-weight: 700
     }
-    
+
     name {
       font-family: 'Lato', Verdana, Helvetica, sans-serif;
       font-size: 35px;
     }
-    
+
     .one {
       width: 160px;
       height: 160px;
       position: relative;
     }
-    
+
     .two {
       width: 160px;
       height: 160px;
@@ -63,13 +63,13 @@
       -moz-transition: opacity .2s ease-in-out;
       -webkit-transition: opacity .2s ease-in-out;
     }
-    
+
     .fade {
       transition: opacity .2s ease-in-out;
       -moz-transition: opacity .2s ease-in-out;
       -webkit-transition: opacity .2s ease-in-out;
     }
-    
+
     span.highlight {
       background-color: #ffffd0;
     }
@@ -124,11 +124,13 @@
         </table>
 
         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-
-           <td width="30%"><img src="images/teaser_savo.png" alt="SAVO Teaser" width="300" height="120" type="image/png"></td>
+           <td width="30%">
+            <a href="https://arxiv.org/abs/2410.11833">
+              <img src="images/teaser_savo.png" href="https://arxiv.org/abs/2410.11833" alt="SAVO Teaser" width="300" height="120" type="image/png"></td>
+            </a>
             <td valign="middle" width="70%">
-              <a href="">
-                <papertitle>Improving Actor-Critic by Simplifying the Q-Landscape</papertitle>
+              <a href="https://arxiv.org/abs/2410.11833">
+                <papertitle>Mitigating Suboptimality of Deterministic Policy Gradients in Complex Q-functions</papertitle>
               </a>
               <br>
               <strong>Ayush Jain</strong>,
@@ -140,10 +142,8 @@
               <br>
               <em>preprint</em>
               <br>
-              <p>We propose an enhanced actor architecture to find actions that better maximize the Q-function for actor-critic RL algorithms.</p>
-              <!--
-              <em>(arxiv soon)</em>
-              -->
+              <p>We identify that TD3 gets stuck in local optima in tasks with complex Q-functions and propose a new actor architecture to find better optima.</p>
+              <a href="https://arxiv.org/abs/2410.11833">arXiv</a>
               <p></p>
             </td>
 
@@ -152,13 +152,13 @@
         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
 
           <td width="30%">
-            <a href="https://openreview.net/pdf?id=U3n8WPtKPm">
+            <a href="https://qmp-mtrl.github.io/">
               <img src="images/qmp_teaser.png" href="https://openreview.net/pdf?id=U3n8WPtKPm" alt="QMP Teaser" width="300" height="160" type="image/png">
             </a>
           </td>
             <td valign="middle" width="70%">
-              <a href="https://openreview.net/pdf?id=U3n8WPtKPm">
-                <papertitle>Efficient Multi-Task Reinforcement Learning via Selective Behavior Sharing</papertitle>
+              <a href="https://arxiv.org/abs/2302.00671">
+                <papertitle>QMP: Q-switch Mixture of Policies for Multi-Task Behavior Sharing</papertitle>
               </a>
               <br>
               <a href="https://gracehzhang.github.io/">Grace Zhang</a>*,
@@ -167,12 +167,14 @@
               <a href="https://shaohua0116.github.io/">Shao-Hua Sun</a>,
               <a href="https://clvrai.com/web_lim/">Joseph J. Lim</a>
               <br>
-              <em>Deep Reinforcement Learning Workshop at NeurIPS 2022</em>
+              <em>preprint
+                <!-- Deep Reinforcement Learning Workshop at NeurIPS 2022 -->
+              </em>
               <br>
               <p>Sharing behaviors between tasks to improve exploration for multitask reinforcement learning.</p>
-              <a href="https://openreview.net/pdf?id=U3n8WPtKPm">Paper</a> |
+              <!-- <a href="https://openreview.net/pdf?id=U3n8WPtKPm">Paper</a> | -->
               <a href="https://arxiv.org/abs/2302.00671">arXiv</a> |
-              <a href="https://sites.google.com/view/qmp-mtrl">Project Page</a>
+              <a href="https://qmp-mtrl.github.io/">Project Page</a>
               <p></p>
             </td>
 
@@ -230,16 +232,16 @@
               <br>
               <p>Our proposed RL framework enables agents to solve sequential decision-making tasks even when the available actions (tools or skills) have not been seen before.</p>
               <a href="http://proceedings.mlr.press/v119/jain20b.html">Paper</a> |
-              <a href="https://sites.google.com/view/action-generalization">Project Page</a> | 
-              <a href="https://arxiv.org/abs/2011.01928">arXiv</a> | 
-              <a href="https://github.com/clvrai/new-actions-rl">Code</a> | 
-              <a href="https://icml.cc/virtual/2020/poster/5768">Talk</a> | 
+              <a href="https://sites.google.com/view/action-generalization">Project Page</a> |
+              <a href="https://arxiv.org/abs/2011.01928">arXiv</a> |
+              <a href="https://github.com/clvrai/new-actions-rl">Code</a> |
+              <a href="https://icml.cc/virtual/2020/poster/5768">Talk</a> |
               <a href="https://clvrai.com/create/">Environment</a>
               <p></p>
             </td>
 
         </table>
-           
+
         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
            <td width="30%"><img src="images/uid_image.png" alt="UID" width="300" height="180"></td>
             <td valign="middle" width="70%">
@@ -258,7 +260,7 @@
               <p></p>
               <p>This work investigates the extent to which word order choices in Hindi language are influenced by the drive to minimize the information variance in a sentence.</p>
             </td>
-            
+
         </table>
 
 
@@ -273,12 +275,12 @@
               <p>
               Teaching Assistant (USC): <papertitle>Deep Learning and its Applications (CSCI566, CSCI599)</papertitle>
                 <ul>
-                    <li>Fall 2019: <em>Prof. Joseph J Lim</em></li>
-                    <li>Spring 2019: <em>Prof. Joseph J Lim</em></li>
-                    <li>Fall 2020: <em>Prof. Joseph J Lim</em></li>
-                    <li>Spring 2023: <em>Prof. Jesse Thomason</em></li>
-                    <li>Spring 2024: <em>Prof. Yue Zhao</em></li>
                     <li>Fall 2024: <em>Prof. Yan Liu</em></li>
+                    <li>Spring 2024: <em>Prof. Yue Zhao</em></li>
+                    <li>Spring 2023: <em>Prof. Jesse Thomason</em></li>
+                    <li>Fall 2020: <em>Prof. Joseph J Lim</em></li>
+                    <li>Spring 2019: <em>Prof. Joseph J Lim</em></li>
+                    <li>Fall 2019: <em>Prof. Joseph J Lim</em></li>
                 </ul>
               </p>
             </td>
