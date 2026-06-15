@@ -1,528 +1,857 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <meta name=viewport content="width=800">
-  <meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
-  <style type="text/css">
-    /* Color scheme stolen from Sergey Karayev */
-
-    a {
-      color: #1772d0;
-      text-decoration: none;
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  <title>Ayush Jain</title>
+  <link rel="icon" type="image/png" href="images/seal_icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --text: #202225;
+      --muted: #5f6872;
+      --faint: #eef1f4;
+      --paper: #ffffff;
+      --link: #1769bd;
+      --link-hover: #c26818;
+      --llm: #d7e8ff;
+      --robotics: #dff0e8;
+      --rl: #f1e6cc;
+      --earlier: #e8e8ee;
     }
 
-    a:focus,
-    a:hover {
-      color: #f09228;
-      text-decoration: none;
+    * {
+      box-sizing: border-box;
     }
 
-    body,
-    td,
-    th,
-    tr,
-    p,
-    a {
-      font-family: 'Lato', Verdana, Helvetica, sans-serif;
-      font-size: 15px
-    }
-
-    strong {
-      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+    body {
+      margin: 0;
+      color: var(--text);
+      background: #f7f8fa;
+      font-family: "Inter", Verdana, Helvetica, sans-serif;
       font-size: 15px;
+      line-height: 1.55;
     }
 
-    heading {
-      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+    a {
+      color: var(--link);
+      text-decoration: none;
+      transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--link-hover);
+    }
+
+    em {
+      font-style: normal;
+      color: var(--muted);
+    }
+
+    .page {
+      width: min(1080px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 42px;
+    }
+
+    .shell {
+      background: var(--paper);
+      border: 1px solid #e5e9ef;
+      border-radius: 8px;
+      box-shadow: 0 18px 50px rgba(24, 36, 54, 0.06);
+      overflow: hidden;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 34px;
+      align-items: center;
+      padding: 34px 38px 28px;
+      border-bottom: 1px solid var(--faint);
+    }
+
+    .name {
+      margin: 0 0 16px;
+      font-size: 36px;
+      line-height: 1.05;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .intro p {
+      margin: 0 0 13px;
+    }
+
+    .profile-photo {
+      width: 200px;
+      max-width: 100%;
+      border-radius: 8px;
+      display: block;
+      margin-left: auto;
+    }
+
+    .meta-logo {
+      width: 18px;
+      height: 18px;
+      vertical-align: -3px;
+      margin: 0 2px;
+    }
+
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      margin-top: 18px;
+      font-weight: 500;
+    }
+
+    .link-divider {
+      color: #c4ccd5;
+      font-weight: 400;
+    }
+
+    .section {
+      padding: 26px 38px 4px;
+    }
+
+    .section-heading {
+      margin: 0;
       font-size: 24px;
+      line-height: 1.2;
+      font-weight: 700;
     }
 
-    papertitle {
-      font-family: 'Lato', Verdana, Helvetica, sans-serif;
-      font-size: 15px;
-      font-weight: 700
+    .section-note {
+      margin: 7px 0 0;
+      color: var(--muted);
+      max-width: 720px;
     }
 
-    name {
-      font-family: 'Lato', Verdana, Helvetica, sans-serif;
-      font-size: 35px;
+    .research-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      padding: 18px 38px 6px;
     }
 
-    .one {
-      width: 160px;
-      height: 160px;
-      position: relative;
+    .tab-button {
+      appearance: none;
+      border: 1px solid #dce3eb;
+      border-radius: 999px;
+      background: #fff;
+      color: #334155;
+      cursor: pointer;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1;
+      padding: 9px 14px;
+      transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
     }
 
-    .two {
-      width: 160px;
-      height: 160px;
-      position: absolute;
-      transition: opacity .2s ease-in-out;
-      -moz-transition: opacity .2s ease-in-out;
-      -webkit-transition: opacity .2s ease-in-out;
+    .tab-button:hover {
+      border-color: #b8c7d8;
+      color: var(--link);
     }
 
-    .fade {
-      transition: opacity .2s ease-in-out;
-      -moz-transition: opacity .2s ease-in-out;
-      -webkit-transition: opacity .2s ease-in-out;
+    .tab-button.llm-tab {
+      background: var(--llm);
+      border-color: #b8d4f7;
     }
 
-    span.highlight {
-      background-color: #ffffd0;
+    .tab-button.robotics-tab {
+      background: var(--robotics);
+      border-color: #bedfcf;
+    }
+
+    .tab-button.rl-tab {
+      background: var(--rl);
+      border-color: #ddc98f;
+    }
+
+    .tab-button.active {
+      background: #1f2937;
+      border-color: #1f2937;
+      color: #fff;
+      box-shadow: 0 8px 18px rgba(31, 41, 55, 0.14);
+    }
+
+    .tab-button.llm-tab.active,
+    .tab-button.robotics-tab.active,
+    .tab-button.rl-tab.active {
+      color: #1f2937;
+    }
+
+    .tab-button.llm-tab.active {
+      background: var(--llm);
+      border-color: #7fb3ef;
+      box-shadow: 0 8px 18px rgba(23, 105, 189, 0.14);
+    }
+
+    .tab-button.robotics-tab.active {
+      background: var(--robotics);
+      border-color: #83c2a5;
+      box-shadow: 0 8px 18px rgba(43, 125, 85, 0.12);
+    }
+
+    .tab-button.rl-tab.active {
+      background: var(--rl);
+      border-color: #c5aa58;
+      box-shadow: 0 8px 18px rgba(140, 104, 31, 0.12);
+    }
+
+    .papers-list {
+      padding: 8px 38px 12px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      color: #303236;
+      letter-spacing: 0;
+      text-transform: none;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .tag.llm {
+      background: var(--llm);
+    }
+
+    .tag.robotics {
+      background: var(--robotics);
+    }
+
+    .tag.rl {
+      background: var(--rl);
+    }
+
+    .tag.earlier {
+      background: var(--earlier);
+    }
+
+    .paper {
+      display: grid;
+      grid-template-columns: 270px 1fr;
+      gap: 28px;
+      align-items: center;
+      padding: 18px 0 20px;
+      border-bottom: 1px solid #edf1f5;
+      transition: background 0.15s ease;
+    }
+
+    .paper[hidden] {
+      display: none;
+    }
+
+    .paper:last-child {
+      border-bottom: 0;
+    }
+
+    .paper-media {
+      width: 270px;
+      height: 174px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .paper-media.tall {
+      height: 300px;
+    }
+
+    .paper-media img,
+    .paper-media video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .paper-media.cover img,
+    .paper-media.cover video {
+      object-fit: cover;
+    }
+
+    .paper-title {
+      display: inline-block;
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.35;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .paper-title:hover {
+      color: var(--link-hover);
+    }
+
+    .authors {
+      color: var(--muted);
+    }
+
+    .authors strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .paper-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .paper-topic,
+    .venue {
+      display: inline-flex;
+      align-items: center;
+      min-height: 23px;
+      border-radius: 999px;
+      padding: 3px 8px;
+      color: #3a4049;
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 500;
+    }
+
+    .paper-topic {
+      font-weight: 700;
+    }
+
+    .paper-topic.llm {
+      background: var(--llm);
+    }
+
+    .paper-topic.robotics {
+      background: var(--robotics);
+    }
+
+    .paper-topic.rl {
+      background: var(--rl);
+    }
+
+    .paper-topic.earlier {
+      background: var(--earlier);
+    }
+
+    .venue {
+      background: #f2f5f8;
+      border: 1px solid #e0e7ef;
+    }
+
+    .venue.top {
+      background: #182231;
+      border-color: #182231;
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 5px 12px rgba(24, 34, 49, 0.14);
+    }
+
+    .paper p {
+      margin: 9px 0 10px;
+    }
+
+    .award {
+      display: inline-block;
+      margin-top: 6px;
+      color: #b33227;
+      font-weight: 700;
+    }
+
+    .paper-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 8px;
+    }
+
+    .paper-links a {
+      border: 1px solid #dbe1e8;
+      border-radius: 999px;
+      background: #fff;
+      padding: 3px 9px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .paper-links a:hover {
+      background: #fff8ef;
+      border-color: #f0c384;
+    }
+
+    .compact-section {
+      padding: 18px 38px;
+      border-top: 1px solid var(--faint);
+    }
+
+    .compact-section h2 {
+      margin: 0 0 10px;
+      font-size: 21px;
+      line-height: 1.2;
+    }
+
+    .compact-section ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .footer {
+      padding: 16px 38px 24px;
+      text-align: right;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        width: min(100% - 20px, 1080px);
+        padding-top: 10px;
+      }
+
+      .intro {
+        grid-template-columns: 1fr;
+        padding: 24px 22px;
+      }
+
+      .profile-photo {
+        margin: 0;
+      }
+
+      .section,
+      .research-tabs,
+      .papers-list,
+      .compact-section,
+      .footer {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      .paper {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .paper-media,
+      .paper-media.tall {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+      }
     }
   </style>
-  <link rel="icon" type="image/png" href="images/seal_icon.png">
-  <title>Ayush Jain</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-  <table width="900" border="0" align="center" cellspacing="0" cellpadding="0">
-    <tr>
-      <td>
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tr>
-            <td width="67%" valign="middle">
-              <p align="center">
-                <name>Ayush Jain</name>
-               
-              <p>
-                I am a Research Scientist at Meta
-                <img src="images/meta-logo-facebook.svg" alt="Meta" width="18" height="18" style="vertical-align: middle; margin-right: 4px;">
-                in the Applied <b>Reinforcement Learning</b> team. 
-                I work on reinforcement learning algorithms and architectures that learn under complex action spaces 
-                for large-scale recommenders, robotics, and LLMs.
-              </p>
-              
+  <div class="page" role="main">
+    <div class="shell">
+      <div class="intro">
+        <div>
+          <h1 class="name">Ayush Jain</h1>
+          <p>
+            I am a Research Scientist at Meta
+            <img class="meta-logo" src="images/meta-logo-facebook.svg" alt="Meta">
+            in the Applied <b>Reinforcement Learning</b> team. I build RL algorithms for agents that act under
+            complex action spaces across <b>recommender systems, robotics, and LLMs</b>.
+          </p>
+          <p>
+            I completed my PhD at USC with Prof.
+            <a href="https://clvrai.com/web_lim/">Joseph J. Lim</a> and Prof.
+            <a href="https://ebiyik.github.io/">Erdem B&#305;y&#305;k</a>. I have worked or interned at
+            <a href="https://about.meta.com/realitylabs/">Meta Reality Labs</a>,
+            <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-montreal/">Microsoft Research Montreal</a>,
+            <a href="https://clova.ai/en/research/research-areas.html">Naver AI</a>, and
+            <a href="https://research.samsung.com/aicenter_seoul">Samsung Research Korea</a>. I received my undergraduate degree from
+            <a href="http://home.iitd.ac.in">IIT Delhi</a>.
+          </p>
+          <div class="link-row">
+            <a href="mailto:ayushj240@gmail.com">Email</a>
+            <span class="link-divider">|</span>
+            <a href="https://twitter.com/Ayushj240">Twitter</a>
+            <span class="link-divider">|</span>
+            <a href="data/Ayush_Jain_CV.pdf">CV</a>
+            <span class="link-divider">|</span>
+            <a href="https://scholar.google.com/citations?user=-zEc_sAAAAAJ&amp;hl=en&amp;authuser=1">Google Scholar</a>
+            <span class="link-divider">|</span>
+            <a href="https://www.linkedin.com/in/ayushj240">LinkedIn</a>
+          </div>
+        </div>
+        <img class="profile-photo" src="images/ayush2022_2.jpg" alt="Ayush Jain">
+      </div>
 
-              <p>I completed my PhD at University of Southern California, co-advised by Prof. <a href="https://clvrai.com/web_lim/">Joseph J. Lim</a> and Prof. <a href="https://ebiyik.github.io/">Erdem B&#305;y&#305;k</a>.
-              I was fortunate to intern at <a href="https://about.meta.com/realitylabs/">Meta Reality Labs</a>, <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-montreal/">Microsoft Research Montreal</a> and <a href="https://clova.ai/en/research/research-areas.html">Naver AI, Seoul</a>.
-              Before joining USC, I spent two years in Seoul, working at <a href="https://research.samsung.com/aicenter_seoul">Samsung Research Korea</a>. Earlier, I graduated from <a href="http://home.iitd.ac.in">IIT Delhi</a>, where I worked under the guidance of Prof. <a href="http://web.iitd.ac.in/~sumeet">Sumeet Agarwal</a> and Prof. Rajakrishnan Rajkumar.
-              </p>
-              <!-- <p>
-              <strong>Research Goal</strong>: To build adaptive and capable agents for both physical and virtual worlds. I work on reinforcement learning algorithms and architectures that learn under <strong>complex action spaces</strong> that are large, unseen, varying, or difficult to optimize.
-              </p> -->
-              <p align=center>
-                <a href="mailto:ayushj@usc.edu">Email</a> &nbsp|&nbsp
-                <a href="https://twitter.com/Ayushj240">Twitter</a> &nbsp|&nbsp
-                <a href="data/Ayush_Jain_CV.pdf">CV</a> &nbsp|&nbsp
-                <a href="https://scholar.google.com/citations?user=-zEc_sAAAAAJ&hl=en&authuser=1">Google Scholar</a> &nbsp|&nbsp
-                <a href="https://www.linkedin.com/in/ayushj240"> LinkedIn </a>
-              </p>
-            </td>
-            <td width="33%">
-              <img src="images/ayush2022_2.jpg" width="200">
-            </td>
-          </tr>
-        </table>
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tr>
-            <td width="100%" valign="middle">
-              <heading>Research</heading>
-              <!--
-              <p>
-                I am primarily interested in giving artificial agents the ability to think, understand and act in novel circumstances. My research involves using reinforcement learning and representation learning to achieve generalizable and adaptable agents for reasoning, recommender systems, and robotics.
-              </p>
-              -->
-            </td>
-          </tr>
-        </table>
+      <div class="section">
+        <h2 class="section-heading">Research</h2>
+      </div>
 
+      <div class="research-tabs" aria-label="Research filters">
+        <button class="tab-button active" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="tab-button llm-tab" type="button" data-filter="llms" aria-pressed="false">LLMs</button>
+        <button class="tab-button robotics-tab" type="button" data-filter="robotics" aria-pressed="false">Robotics</button>
+        <button class="tab-button rl-tab" type="button" data-filter="rl" aria-pressed="false">RL Algorithms</button>
+      </div>
 
-       <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-        <td valign="middle" width="30%">
-         <a href="https://arxiv.org/abs/2510.09096">
-          <!-- <video muted autoplay loop src="images/lfcd_teaser.mp4" alt="LFCD Teaser Video" width="300" height="300" type="video/mp4"> -->
-            <video
-            muted
-            autoplay
-            loop
-            src="images/lfcd_teaser.mp4"
-            alt="LFCD Teaser Video"
-            width="300"
-            height="380"
-            type="video/mp4"
-            style="
-              object-fit: cover;
-              width: 300;
-              height: 365;
-              clip-path: inset(0.4%);
-              border: none;
-            "
-          ></video>
-         </a>
-         <td valign="middle" width="70%">
-           <a href="https://arxiv.org/abs/2510.09096">
-             <papertitle>When a Robot is More Capable than a Human: Learning from Constrained Demonstrators</papertitle>
-           </a>
-           <br>
-          <a href="https://xhlsgit.github.io/">Xinhu Li</a>,
-           <strong>Ayush Jain</strong>,
-          <a href="https://yang-zj1026.github.io/">Zhaojing Yang</a>,
-          <a href="https://ygtkorkmaz.github.io/">Yigit Korkmaz</a>,
-          <a href="https://ebiyik.github.io/">Erdem B&#305;y&#305;k</a>
-           <br>
-           <em>ICLR 2026</em>
-           <br>
-           <p> Expert demonstrators are often constrained due to indirect control, setup restrictions, and hardware safety. We propose an inverse RL method to learn from such constrained demonstrations and find shorter trajectories to the goal.</p>
-           <a href="https://arxiv.org/abs/2510.09096">arXiv</a> |
-           <a href="https://openreview.net/forum?id=BvirMuKWV1">Paper</a> |
-           <a href="https://sites.google.com/view/constrainedexpert">Project Page</a>
-           <p></p>
-         </td>
-     </table>
+      <div class="papers-list">
 
+        <div class="paper" data-topic="llms">
+          <a class="paper-media" href="https://arxiv.org/abs/2602.02416">
+            <img src="images/thought_ics_teaser.png" alt="Structure Enables Effective Self-Localization teaser">
+          </a>
+          <div>
+            <a class="paper-title" href="https://arxiv.org/abs/2602.02416">Structure Enables Effective Self-Localization of Errors in LLMs</a>
+            <div class="authors">
+              <a href="https://www.linkedin.com/in/ankursamanta/">Ankur Samanta</a>,
+              <a href="https://sites.google.com/view/akshayaamagesh/home">Akshayaa Magesh</a>,
+              <strong>Ayush Jain</strong>,
+              <a href="https://kavosh8.github.io/">Kavosh Asadi</a>,
+              <a href="https://www.linkedin.com/in/youliangyu/">Youliang Yu</a>,
+              <a href="https://danielrjiang.github.io/">Daniel Jiang</a>,
+              <a href="https://www.linkedin.com/in/borisvidolov/">Boris Vidolov</a>,
+              <a href="https://kavehhassani.github.io/">Kaveh Hassani</a>,
+              <a href="https://www.bme.columbia.edu/paul-sajda">Paul Sajda</a>,
+              <a href="https://www.columbia.edu/~jb3618/">Jalaj Bhandari</a>,
+              <a href="https://sites.google.com/view/yonathan-efroni/home">Yonathan Efroni</a>
+            </div>
+            <div class="paper-meta">
+              <span class="paper-topic llm">LLMs</span>
+              <span class="venue top">ICML 2026</span>
+            </div>
+            <p>We show that language models can explicitly self-localize errors in incorrect reasoning when it is structured as discrete, semantically coherent thought steps.</p>
+            <div class="paper-links">
+              <a href="https://arxiv.org/abs/2602.02416">arXiv</a>
+            </div>
+          </div>
+        </div>
 
-     <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-      <td width="30%">
-       <a href="https://arxiv.org/abs/2510.19178">
-         <img src="images/imbalanced_teaser.png" href="https://arxiv.org/abs/2510.19178" alt="Imbalanced Gradients Teaser" width="300" height="200" type="image/png"></td>
-       </a>
-       <td valign="middle" width="70%">
-         <a href="https://arxiv.org/abs/2510.19178">
-           <papertitle>Imbalanced Gradients in RL Post-Training of Multi-Task LLMs</papertitle>
-         </a>
-         <br>
-         <a href="https://ziqian2000.github.io/">Runzhe Wu</a>,
-         <a href="https://www.linkedin.com/in/ankursamanta/">Ankur Samanta</a>,
-         <strong>Ayush Jain</strong>,
-         Scott Fujimoto,
-         <a href="https://kwonchungli.github.io/">Jeongyeol Kwon</a>,
-         Ben Kretzu,
-         <a href="https://www.linkedin.com/in/youliangyu/">Youliang Yu</a>,
-         <a href="https://kavehhassani.github.io/">Kaveh Hassani</a>,
-         <a href="https://www.linkedin.com/in/borisvidolov/">Boris Vidolov</a>,
-         <a href="https://sites.google.com/view/yonathan-efroni/home">Yonathan Efroni</a>
-         <br>
-         <em>EACL 2026</em>
-         <br>
-         <p>We find that in RL post-training of multi-task LLMs, certain tasks produce much larger gradients, which biases model updates toward those tasks, even though these larger gradients don't translate to greater learning gains.</p>
-         <!-- <a href="https://openreview.net/forum?id=H3jcTxcvvJ">Paper</a> | -->
-         <a href="https://arxiv.org/abs/2510.19178">arXiv</a>
-         <p></p>
-       </td>
+        <div class="paper" data-topic="robotics">
+          <a class="paper-media tall" href="https://arxiv.org/abs/2510.09096">
+            <video muted autoplay loop playsinline src="images/lfcd_teaser.mp4" aria-label="Learning from Constrained Demonstrators teaser"></video>
+          </a>
+          <div>
+            <a class="paper-title" href="https://arxiv.org/abs/2510.09096">When a Robot is More Capable than a Human: Learning from Constrained Demonstrators</a>
+            <div class="authors">
+              <a href="https://xhlsgit.github.io/">Xinhu Li</a>,
+              <strong>Ayush Jain</strong>,
+              <a href="https://yang-zj1026.github.io/">Zhaojing Yang</a>,
+              <a href="https://ygtkorkmaz.github.io/">Yigit Korkmaz</a>,
+              <a href="https://ebiyik.github.io/">Erdem B&#305;y&#305;k</a>
+            </div>
+            <div class="paper-meta">
+              <span class="paper-topic robotics">Robotics</span>
+              <span class="venue top">ICLR 2026</span>
+            </div>
+            <p>We propose an inverse RL method for learning from constrained demonstrators and finding shorter trajectories to the goal.</p>
+            <div class="paper-links">
+              <a href="https://arxiv.org/abs/2510.09096">arXiv</a>
+              <a href="https://openreview.net/forum?id=BvirMuKWV1">Paper</a>
+              <a href="https://sites.google.com/view/constrainedexpert">Project Page</a>
+            </div>
+          </div>
+        </div>
 
-   </table>
+        <div class="paper" data-topic="llms">
+          <a class="paper-media" href="https://arxiv.org/abs/2605.25507">
+            <img src="images/credit_assignment_resets.png" alt="Credit Assignment with Resets teaser">
+          </a>
+          <div>
+            <a class="paper-title" href="https://arxiv.org/abs/2605.25507">Credit Assignment with Resets in Language Model Reasoning</a>
+            <div class="authors">
+              <a href="https://www.linkedin.com/in/ankursamanta/">Ankur Samanta</a>,
+              <a href="https://sites.google.com/view/akshayaamagesh/home">Akshayaa Magesh</a>,
+              <strong>Ayush Jain</strong>,
+              <a href="https://www.linkedin.com/in/youliangyu/">Youliang Yu</a>,
+              <a href="https://danielrjiang.github.io/">Daniel Jiang</a>,
+              <a href="https://kavosh8.github.io/">Kavosh Asadi</a>,
+              <a href="https://kavehhassani.github.io/">Kaveh Hassani</a>,
+              <a href="https://www.bme.columbia.edu/paul-sajda">Paul Sajda</a>,
+              <a href="https://www.columbia.edu/~jb3618/">Jalaj Bhandari</a>,
+              <a href="https://sites.google.com/view/yonathan-efroni/home">Yonathan Efroni</a>
+            </div>
+            <div class="paper-meta">
+              <span class="paper-topic llm">LLMs</span>
+              <span class="venue">Preprint</span>
+            </div>
+            <p>We propose reset-based policy optimization methods that improve credit assignment in multi-step language model reasoning by resampling continuations from intermediate reasoning states.</p>
+            <div class="paper-links">
+              <a href="https://arxiv.org/abs/2605.25507">arXiv</a>
+            </div>
+          </div>
+        </div>
 
+        <div class="paper" data-topic="llms">
+          <a class="paper-media" href="https://arxiv.org/abs/2510.19178">
+            <img src="images/imbalanced_teaser.png" alt="Imbalanced Gradients teaser">
+          </a>
+          <div>
+            <a class="paper-title" href="https://arxiv.org/abs/2510.19178">Imbalanced Gradients in RL Post-Training of Multi-Task LLMs</a>
+            <div class="authors">
+              <a href="https://ziqian2000.github.io/">Runzhe Wu</a>,
+              <a href="https://www.linkedin.com/in/ankursamanta/">Ankur Samanta</a>,
+              <strong>Ayush Jain</strong>,
+              Scott Fujimoto,
+              <a href="https://kwonchungli.github.io/">Jeongyeol Kwon</a>,
+              Ben Kretzu,
+              <a href="https://www.linkedin.com/in/youliangyu/">Youliang Yu</a>,
+              <a href="https://kavehhassani.github.io/">Kaveh Hassani</a>,
+              <a href="https://www.linkedin.com/in/borisvidolov/">Boris Vidolov</a>,
+              <a href="https://sites.google.com/view/yonathan-efroni/home">Yonathan Efroni</a>
+            </div>
+            <div class="paper-meta">
+              <span class="paper-topic llm">LLMs</span>
+              <span class="venue top">EACL 2026</span>
+            </div>
+            <p>Certain tasks produce much larger gradients during RL post-training of multi-task LLMs, biasing model updates without translating to greater learning gains.</p>
+            <div class="paper-links">
+              <a href="https://arxiv.org/abs/2510.19178">arXiv</a>
+            </div>
+          </div>
+        </div>
 
+        <div class="paper" data-topic="llms">
+          <a class="paper-media" href="https://arxiv.org/abs/2509.15172">
+            <img src="images/maca_teaser.png" alt="Multi-Agent Debate teaser">
+          </a>
+          <div>
+            <a class="paper-title" href="https://arxiv.org/abs/2509.15172">Self-Improvement of Language Models by Post-Training on Multi-Agent Debate</a>
+            <div class="authors">
+              <a href="https://www.linkedin.com/in/ankursamanta/">Ankur Samanta</a>,
+              <a href="https://sites.google.com/view/akshayaamagesh/home">Akshayaa Magesh</a>,
+              <a href="https://ziqian2000.github.io/">Runzhe Wu</a>,
+              <strong>Ayush Jain</strong>,
+              <a href="https://www.linkedin.com/in/youliangyu/">Youliang Yu</a>,
+              <a href="https://danielrjiang.github.io/">Daniel Jiang</a>,
+              <a href="https://www.linkedin.com/in/borisvidolov/">Boris Vidolov</a>,
+              <a href="https://www.bme.columbia.edu/paul-sajda">Paul Sajda</a>,
+              <a href="https://sites.google.com/view/yonathan-efroni/home">Yonathan Efroni</a>,
+              <a href="https://kavehhassani.github.io/">Kaveh Hassani</a>
+            </div>
+            <div class="paper-meta">
+              <span class="paper-topic llm">LLMs</span>
+              <span class="venue">Preprint</span>
+            </div>
+            <p>Language models improve by reinforcing their own debate consensus across diverse reasoning paths.</p>
+            <div class="paper-links">
+              <a href="https://arxiv.org/abs/2509.15172">arXiv</a>
+              <a href="https://github.com/facebookresearch/maca">Code</a>
+            </div>
+          </div>
+        </div>
 
+        <div class="paper" data-topic="rl">
+          <a class="paper-media" href="https://arxiv.org/abs/2510.18828">
+            <img src="images/q3c_teaser.png" alt="Q3C teaser">
+          </a>
+          <div>
+            <a class="paper-title" href="https://arxiv.org/abs/2510.18828">Actor-Free Continuous Control via Structurally Maximizable Q-Functions</a>
+            <div class="authors">
+              <a href="https://ygtkorkmaz.github.io/">Yigit Korkmaz</a>*,
+              <a href="https://www.linkedin.com/in/urvi-bhuwania/">Urvi Bhuwania</a>*,
+              <strong>Ayush Jain<sup>&#8224;</sup></strong>,
+              <a href="https://ebiyik.github.io/">Erdem B&#305;y&#305;k<sup>&#8224;</sup></a>
+            </div>
+            <div class="paper-meta">
+              <span class="paper-topic rl">RL Algorithms</span>
+              <span class="venue top">NeurIPS 2025</span>
+            </div>
+            <p>Actor-free Q-learning in continuous action spaces by learning a wire-fitted Q-function.</p>
+            <div class="paper-links">
+              <a href="https://arxiv.org/abs/2510.18828">arXiv</a>
+              <a href="https://github.com/USC-Lira/Q3C">Code</a>
+              <a href="https://neurips.cc/virtual/2025/loc/san-diego/poster/118279">Talk</a>
+            </div>
+          </div>
+        </div>
 
+        <div class="paper" data-topic="rl">
+          <a class="paper-media" href="https://arxiv.org/abs/2410.11833">
+            <img src="images/teaser_savo.png" alt="SAVO teaser">
+          </a>
+          <div>
+            <a class="paper-title" href="https://arxiv.org/abs/2410.11833">Mitigating Suboptimality of Deterministic Policy Gradients in Complex Q-functions</a>
+            <div class="authors">
+              <strong>Ayush Jain</strong>,
+              <a href="https://rowing0914.github.io/">Norio Kosaka</a>,
+              <a href="https://xhlsgit.github.io/">Xinhu Li</a>,
+              <a href="https://bi.snu.ac.kr/~kmkim/">Kyung-Min Kim</a>,
+              <a href="https://ebiyik.github.io/">Erdem B&#305;y&#305;k</a>,
+              <a href="https://clvrai.com/web_lim/">Joseph J. Lim</a>
+            </div>
+            <div class="paper-meta">
+              <span class="paper-topic rl">RL Algorithms</span>
+              <span class="venue top">RLC 2025, Reinforcement Learning Conference</span>
+            </div>
+            <a class="award" href="https://rl-conference.cc/RLC2025Awards.html">Outstanding Paper Award on Empirical Reinforcement Learning Research</a>
+            <p>We identify that TD3 gets stuck in local optima in tasks with complex Q-functions and propose a new actor architecture to find better optima.</p>
+            <div class="paper-links">
+              <a href="https://openreview.net/forum?id=H3jcTxcvvJ">Paper</a>
+              <a href="https://arxiv.org/abs/2410.11833">arXiv</a>
+            </div>
+          </div>
+        </div>
 
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <td width="30%">
-           <a href="">
-             <img src="images/q3c_teaser.png" href="https://arxiv.org/abs/2510.18828" alt="Q3C Teaser" width="300" height="263" type="image/png"></td>
-           </a>
-           <td valign="middle" width="70%">
-             <a href="https://arxiv.org/abs/2510.18828">
-               <papertitle>Actor-Free Continuous Control via Structurally Maximizable Q-Functions
-              </papertitle>
-             </a>
-             <br>
-             <a href="https://ygtkorkmaz.github.io/">Yigit Korkmaz</a>*,
-             <a href="https://www.linkedin.com/in/urvi-bhuwania/">Urvi Bhuwania</a>*,
-             <strong>Ayush Jain<sup>&#8224</sup></strong>,
-             <a href="https://ebiyik.github.io/">Erdem B&#305;y&#305;k<sup>&#8224</sup></a>
-             <br>
-             <em>NeurIPS 2025</em>
-             <br>
-             <p>Actor-free Q-learning in Continuous Action Spaces by learning a "Wire-fitted Q-function".</p>
-             <!-- <a href="https://openreview.net/forum?id=H3jcTxcvvJ">Paper</a> -->
-             <a href="https://arxiv.org/abs/2510.18828">arXiv</a> |
-             <a href="https://github.com/USC-Lira/Q3C">Code</a> |
-             <a href="https://neurips.cc/virtual/2025/loc/san-diego/poster/118279">Talk</a>
-             <p></p>
-           </td>
-       </table>
-
-       <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-        <td width="30%">
-         <a href="https://arxiv.org/abs/2410.11833">
-           <img src="images/teaser_savo.png" href="https://arxiv.org/abs/2410.11833" alt="SAVO Teaser" width="300" height="120" type="image/png"></td>
-         </a>
-         <td valign="middle" width="70%">
-           <a href="https://arxiv.org/abs/2410.11833">
-             <papertitle>Mitigating Suboptimality of Deterministic Policy Gradients in Complex Q-functions</papertitle>
-           </a>
-           <br>
-           <strong>Ayush Jain</strong>,
-           <a href="https://rowing0914.github.io/">Norio Kosaka</a>,
-           <a href="https://xhlsgit.github.io/">Xinhu Li</a>,
-           <a href="https://bi.snu.ac.kr/~kmkim/">Kyung-Min Kim</a>,
-           <a href="https://ebiyik.github.io/">Erdem B&#305;y&#305;k</a>,
-           <a href="https://clvrai.com/web_lim/">Joseph J. Lim</a>
-           <br>
-           <em>RLC 2025, Reinforcement Learning Conference</em>
-           <br>
-            <a href="https://rl-conference.cc/RLC2025Awards.html" style="color:red; font-style:italic; font-weight:bold;">
-              Outstanding Paper Award on Empirical Reinforcement Learning Research
-            </a>
-           <p>We identify that TD3 gets stuck in local optima in tasks with complex Q-functions and propose a new actor architecture to find better optima.</p>
-           <a href="https://openreview.net/forum?id=H3jcTxcvvJ">Paper</a> |
-           <a href="https://arxiv.org/abs/2410.11833">arXiv</a>
-           <p></p>
-         </td>
-
-     </table>
-
-
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <td width="30%">
-           <a href="https://arxiv.org/abs/2602.02416">
-             <img src="images/thought_ics_teaser.png" href="https://arxiv.org/abs/2602.02416" alt="MACA Teaser" width="300" height="120" type="image/png"></td>
-           </a>
-           <td valign="middle" width="70%">
-             <a href="https://arxiv.org/abs/2602.02416">
-               <papertitle>Structure Enables Effective Self-Localization of Errors in LLMs</papertitle>
-             </a>
-             <br>
-             <a href="https://www.linkedin.com/in/ankursamanta/">Ankur Samanta</a>,
-             <a href="https://sites.google.com/view/akshayaamagesh/home">Akshayaa Magesh</a>,
-             <strong>Ayush Jain</strong>,
-             <a href="https://kavosh8.github.io/">Kavosh Asadi</a>,
-             <a href="https://www.linkedin.com/in/youliangyu/">Youliang Yu</a>,
-             <a href="https://danielrjiang.github.io/">Daniel Jiang</a>,
-             <a href="https://www.linkedin.com/in/borisvidolov/">Boris Vidolov</a>,
-             <a href="https://kavehhassani.github.io/">Kaveh Hassani</a>
-             <a href="https://www.bme.columbia.edu/paul-sajda">Paul Sajda</a>,
-             <a href="https://www.columbia.edu/~jb3618/">Jalaj Bhandari</a>,
-             <a href="https://sites.google.com/view/yonathan-efroni/home">Yonathan Efroni</a>,
-             <br>
-             <em>Preprint</em>
-             <br>
-             <p>We show that language models can explicitly self-localize errors in incorrect reasoning when it is structured as discrete, semantically coherent thought steps, enabling effective self-correction through targeted backtracking and resampling.</p>
-             <a href="https://arxiv.org/abs/2602.02416">arXiv</a>
-             <p></p>
-           </td>
-
-       </table>
-
-
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <td width="30%">
-           <a href="https://arxiv.org/abs/2509.15172">
-             <img src="images/maca_teaser.png" href="https://arxiv.org/abs/2509.15172" alt="MACA Teaser" width="300" height="120" type="image/png"></td>
-           </a>
-           <td valign="middle" width="70%">
-             <a href="https://arxiv.org/abs/2509.15172">
-               <papertitle>Self-Improvement of Language Models by Post-Training on Multi-Agent Debate</papertitle>
-             </a>
-             <br>
-             <a href="https://www.linkedin.com/in/ankursamanta/">Ankur Samanta</a>,
-             <a href="https://sites.google.com/view/akshayaamagesh/home">Akshayaa Magesh</a>,
-             <a href="https://ziqian2000.github.io/">Runzhe Wu</a>,
-             <strong>Ayush Jain</strong>,
-             <a href="https://www.linkedin.com/in/youliangyu/">Youliang Yu</a>,
-             <a href="https://danielrjiang.github.io/">Daniel Jiang</a>,
-             <a href="https://www.linkedin.com/in/borisvidolov/">Boris Vidolov</a>,
-             <a href="https://www.bme.columbia.edu/paul-sajda">Paul Sajda</a>,
-             <a href="https://sites.google.com/view/yonathan-efroni/home">Yonathan Efroni</a>,
-             <a href="https://kavehhassani.github.io/">Kaveh Hassani</a>
-             <br>
-             <em>Preprint</em>
-             <br>
-             <p>Language models learn to maintain consistent answers across diverse reasoning paths and ground arguments in peer reasoning by reinforcing their own debate consensus, driving reasoning self-improvement.</p>
-             <!-- <a href="https://openreview.net/forum?id=H3jcTxcvvJ">Paper</a> | -->
-             <a href="https://arxiv.org/abs/2509.15172">arXiv</a> |
-             <a href="https://github.com/facebookresearch/maca">Code</a>
-             <p></p>
-           </td>
-
-       </table>
-
-
-
-
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-
-          <td width="30%">
-            <a href="https://qmp-mtrl.github.io/">
-              <img src="images/qmp_teaser.png" href="https://openreview.net/pdf?id=U3n8WPtKPm" alt="QMP Teaser" width="300" height="160" type="image/png">
-            </a>
-          </td>
-            <td valign="middle" width="70%">
-              <a href="https://arxiv.org/abs/2302.00671">
-                <papertitle>QMP: Q-switch Mixture of Policies for Multi-Task Behavior Sharing</papertitle>
-              </a>
-              <br>
+        <div class="paper" data-topic="robotics rl">
+          <a class="paper-media" href="https://qmp-mtrl.github.io/">
+            <img src="images/qmp_teaser.png" alt="QMP teaser">
+          </a>
+          <div>
+            <a class="paper-title" href="https://arxiv.org/abs/2302.00671">QMP: Q-switch Mixture of Policies for Multi-Task Behavior Sharing</a>
+            <div class="authors">
               <a href="https://gracehzhang.github.io/">Grace Zhang</a>*,
               <strong>Ayush Jain</strong>*,
               Injune Hwang,
               <a href="https://shaohua0116.github.io/">Shao-Hua Sun</a>,
               <a href="https://clvrai.com/web_lim/">Joseph J. Lim</a>
-              <br>
-              <em>ICLR 2025</em>
-              <br>
-              <p>We introduce behavior-sharing for efficient multitask reinforcement learning, complementary with parameter-sharing and data-sharing.</p>
-              <a href="https://openreview.net/forum?id=aUZEeb2yvK">Paper</a> |
-              <a href="https://arxiv.org/abs/2302.00671">arXiv</a> |
-              <a href="https://qmp-mtrl.github.io/">Project Page</a> |
+            </div>
+            <div class="paper-meta">
+              <span class="paper-topic rl">RL Algorithms</span>
+              <span class="paper-topic robotics">Robotics</span>
+              <span class="venue top">ICLR 2025</span>
+            </div>
+            <p>We introduce behavior-sharing for efficient multitask reinforcement learning, complementary with parameter-sharing and data-sharing.</p>
+            <div class="paper-links">
+              <a href="https://openreview.net/forum?id=aUZEeb2yvK">Paper</a>
+              <a href="https://arxiv.org/abs/2302.00671">arXiv</a>
+              <a href="https://qmp-mtrl.github.io/">Project Page</a>
               <a href="https://github.com/clvrai/qmp">Code</a>
-              <p></p>
-            </td>
+            </div>
+          </div>
+        </div>
 
-        </table>
-
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-
-          <!-- <td width="30%"><img src="images/agile_result_teaser.png" alt="AGILE Teaser" width="300" height="260"></td> -->
-          <td width="30%">
-              <a href="https://openreview.net/forum?id=MljXVdp4A3N">
-                 <video muted autoplay loop src="images/Agile_teaser_video_720p.mp4" alt="AGILE Teaser Video" width="300" height="225" type="video/mp4">
-              </a>
-          </td>
-            <td valign="middle" width="70%">
-              <a href="https://openreview.net/forum?id=MljXVdp4A3N">
-                <papertitle>Know Your Action Set: Learning Action Relations for Reinforcement Learning</papertitle>
-              </a>
-              <br>
+        <div class="paper" data-topic="rl">
+          <a class="paper-media" href="https://openreview.net/forum?id=MljXVdp4A3N">
+            <video muted autoplay loop playsinline src="images/Agile_teaser_video_720p.mp4" aria-label="AGILE teaser"></video>
+          </a>
+          <div>
+            <a class="paper-title" href="https://openreview.net/forum?id=MljXVdp4A3N">Know Your Action Set: Learning Action Relations for Reinforcement Learning</a>
+            <div class="authors">
               <strong>Ayush Jain*</strong>,
               <a href="https://rowing0914.github.io/">Norio Kosaka</a>*,
               <a href="https://bi.snu.ac.kr/~kmkim/">Kyung-Min Kim</a>,
               <a href="https://clvrai.com/web_lim/">Joseph J. Lim</a>
-              <br>
-              <em>ICLR 2022</em>
-              <br>
-              <p>For optimal decision-making under a varying action space, we learn the relations between the available actions using a graph-attention network based policy architecture.</p>
-              <a href="https://openreview.net/pdf?id=MljXVdp4A3N">Paper</a> |
-              <a href="https://sites.google.com/view/varyingaction">Project Page</a> |
-              <a href="https://github.com/clvrai/agile">Code</a> |
+            </div>
+            <div class="paper-meta">
+              <span class="paper-topic rl">RL Algorithms</span>
+              <span class="venue top">ICLR 2022</span>
+            </div>
+            <p>For optimal decision-making under a varying action space, we learn relations between available actions using a graph-attention policy architecture.</p>
+            <div class="paper-links">
+              <a href="https://openreview.net/pdf?id=MljXVdp4A3N">Paper</a>
+              <a href="https://sites.google.com/view/varyingaction">Project Page</a>
+              <a href="https://github.com/clvrai/agile">Code</a>
               <a href="https://iclr.cc/virtual/2022/poster/6594">Talk</a>
-              <p></p>
-            </td>
-        </table>
+            </div>
+          </div>
+        </div>
 
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <td width="30%">
-            <a href="http://proceedings.mlr.press/v119/jain20b.html">
-               <video muted autoplay loop src="images/create_teaser_video_high_res.mp4" alt="CREATE Teaser Video" width="300" height="250" type="video/mp4">
-             </a>
-          </td>
-            <td valign="middle" width="70%">
-              <a href="http://proceedings.mlr.press/v119/jain20b/jain20b.pdf">
-                <papertitle>Generalization to New Actions in Reinforcement Learning</papertitle>
-              </a>
-              <br>
+        <div class="paper" data-topic="rl">
+          <a class="paper-media" href="http://proceedings.mlr.press/v119/jain20b.html">
+            <video muted autoplay loop playsinline src="images/create_teaser_video_high_res.mp4" aria-label="CREATE teaser"></video>
+          </a>
+          <div>
+            <a class="paper-title" href="http://proceedings.mlr.press/v119/jain20b/jain20b.pdf">Generalization to New Actions in Reinforcement Learning</a>
+            <div class="authors">
               <strong>Ayush Jain*</strong>,
               <a href="https://www.andrewszot.com/">Andrew Szot</a>*,
               <a href="https://clvrai.com/web_lim/">Joseph J. Lim</a>
-              <br>
-              <em>ICML 2020</em>
-              <br>
-              <p>Our proposed RL framework enables agents to solve sequential decision-making tasks even when the available actions (tools or skills) have not been seen before.</p>
-              <a href="http://proceedings.mlr.press/v119/jain20b.html">Paper</a> |
-              <a href="https://sites.google.com/view/action-generalization">Project Page</a> |
-              <a href="https://arxiv.org/abs/2011.01928">arXiv</a> |
-              <a href="https://github.com/clvrai/new-actions-rl">Code</a> |
-              <a href="https://icml.cc/virtual/2020/poster/5768">Talk</a> |
+            </div>
+            <div class="paper-meta">
+              <span class="paper-topic rl">RL Algorithms</span>
+              <span class="venue top">ICML 2020</span>
+            </div>
+            <p>Our RL framework enables agents to solve sequential decision-making tasks even when available actions have not been seen before.</p>
+            <div class="paper-links">
+              <a href="http://proceedings.mlr.press/v119/jain20b.html">Paper</a>
+              <a href="https://sites.google.com/view/action-generalization">Project Page</a>
+              <a href="https://arxiv.org/abs/2011.01928">arXiv</a>
+              <a href="https://github.com/clvrai/new-actions-rl">Code</a>
+              <a href="https://icml.cc/virtual/2020/poster/5768">Talk</a>
               <a href="https://clvrai.com/create/">Environment</a>
-              <p></p>
-            </td>
+            </div>
+          </div>
+        </div>
 
-        </table>
-
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-           <td width="30%"><img src="images/uid_image.png" alt="UID" width="300" height="180"></td>
-            <td valign="middle" width="70%">
-              <a href="http://aclweb.org/anthology/W18-4605">
-                <papertitle>Uniform Information Density Effects on Syntactic Choice in Hindi</papertitle>
-              </a>
-              <br>
+        <div class="paper" data-topic="earlier">
+          <div class="paper-media">
+            <img src="images/uid_image.png" alt="UID paper teaser">
+          </div>
+          <div>
+            <a class="paper-title" href="http://aclweb.org/anthology/W18-4605">Uniform Information Density Effects on Syntactic Choice in Hindi</a>
+            <div class="authors">
               <strong>Ayush Jain*</strong>,
               <a href="https://sites.google.com/view/vishal-singh">Vishal Singh</a>*,
               Sidharth Ranjan*,
               Rajakrishnan Rajkumar,
               <a href="http://web.iitd.ac.in/~sumeet">Sumeet Agarwal</a>
-              <br>
-              <em>COLING 2018 Workshop on Linguistic Complexity and Natural Language Processing</em>
-              <br>
-              <p></p>
-              <p>This work investigates the extent to which word order choices in Hindi language are influenced by the drive to minimize the information variance in a sentence.</p>
-            </td>
+            </div>
+            <div class="paper-meta">
+              <span class="venue">COLING 2018 Workshop</span>
+            </div>
+            <p>This work investigates the extent to which word order choices in Hindi are influenced by the drive to minimize information variance in a sentence.</p>
+          </div>
+        </div>
+      </div>
 
-        </table>
+      <div class="compact-section">
+        <h2>Teaching</h2>
+        <p>Teaching Assistant (USC): <strong>Deep Learning and its Applications (CSCI566, CSCI599)</strong></p>
+        <ul>
+          <li>Fall 2024: <em>Prof. Yan Liu</em></li>
+          <li>Spring 2024: <em>Prof. Yue Zhao</em></li>
+          <li>Spring 2023: <em>Prof. Jesse Thomason</em></li>
+          <li>Fall 2020: <em>Prof. Joseph J Lim</em></li>
+          <li>Spring 2019: <em>Prof. Joseph J Lim</em></li>
+          <li>Fall 2019: <em>Prof. Joseph J Lim</em></li>
+        </ul>
+      </div>
 
+      <div class="compact-section">
+        <h2>Reviewing</h2>
+        <ul>
+          <li><strong>ICLR:</strong> 2023, 2024, 2025, 2026</li>
+          <li><strong>NeurIPS:</strong> 2023, 2024, 2025, 2026</li>
+          <li><strong>ICML:</strong> 2025, 2026</li>
+          <li><strong>RLC:</strong> 2025, 2026</li>
+          <li><strong>CoRL:</strong> 2021, 2022, 2023, 2024</li>
+          <li><strong>AAAI:</strong> 2026</li>
+        </ul>
+      </div>
 
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="5">
-            <td>
-              <heading>Teaching</heading>
-            </td>
-        </table>
-        <table width="100%" align="center" border="0" cellpadding="5">
-          <tr>
-            <td width="70%" valign="middle">
-              <p>
-              Teaching Assistant (USC): <papertitle>Deep Learning and its Applications (CSCI566, CSCI599)</papertitle>
-                <ul>
-                    <li>Fall 2024: <em>Prof. Yan Liu</em></li>
-                    <li>Spring 2024: <em>Prof. Yue Zhao</em></li>
-                    <li>Spring 2023: <em>Prof. Jesse Thomason</em></li>
-                    <li>Fall 2020: <em>Prof. Joseph J Lim</em></li>
-                    <li>Spring 2019: <em>Prof. Joseph J Lim</em></li>
-                    <li>Fall 2019: <em>Prof. Joseph J Lim</em></li>
-                </ul>
-              </p>
-            </td>
-          </tr>
-        </table>
+      <!-- <div class="footer">
+        Credits to the <a href="https://jonbarron.info/">Coolest template!</a>
+      </div> -->
+    </div>
+  </div>
+  <script>
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const papers = document.querySelectorAll(".paper");
 
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="5">
-          <td>
-            <heading>Reviewing</heading>
-          </td>
-        </table>
-        <table width="100%" align="center" border="0" cellpadding="5">
-          <tr>
-            <td width="70%" valign="middle">
-                <ul>
-                    <li><strong>ICLR:</strong> 2023, 2024, 2025, 2026</li>
-                    <li><strong>NeurIPS:</strong> 2023, 2024, 2025</li>
-                    <li><strong>ICML:</strong> 2025</li>
-                    <li><strong>RLC:</strong> 2025</li>
-                    <li><strong>CoRL:</strong> 2021, 2022, 2023, 2024</li>
-                    <li><strong>AAAI:</strong> 2026</li>
-                </ul>
-            </td>
-          </tr>
-        </table>
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
 
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tr>
-            <td>
-              <br>
-              <p align="right">
-                <font size="2">
-                  Credits to the
-                  <a href="https://jonbarron.info/">
-                    <font size="2">
-                      Coolest template!
-                    </font>
-                  </a>
-                </font>
-              </p>
-            </td>
-          </tr>
-        </table>
+        tabButtons.forEach((tab) => {
+          const isActive = tab === button;
+          tab.classList.toggle("active", isActive);
+          tab.setAttribute("aria-pressed", String(isActive));
+        });
 
-
-
-        <script type="text/javascript">
-          var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-          document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-        </script>
-        <script type="text/javascript">
-          try {
-            var pageTracker = _gat._getTracker("UA-7580334-1");
-            pageTracker._trackPageview();
-          } catch (err) {}
-        </script>
-        </td>
-    </tr>
-  </table>
+        papers.forEach((paper) => {
+          const topics = paper.dataset.topic.split(" ");
+          paper.hidden = filter !== "all" && !topics.includes(filter);
+        });
+      });
+    });
+  </script>
 </body>
 
 </html>
