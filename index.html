@@ -17,8 +17,23 @@
       --paper: #ffffff;
       --link: #1769bd;
       --link-hover: #c26818;
-      --llm: #d7e8ff;
-      --robotics-rl: #e5efd9;
+      --llm: #e5f6ff;
+      --llm-border: #33b1ff;
+      --llm-text: #00539a;
+      --llm-active: #00539a;
+      --llm-shadow: rgba(0, 83, 154, 0.14);
+      --robotics-rl: #d9fbfb;
+      --robotics-rl-border: #08bdba;
+      --robotics-rl-text: #005d5d;
+      --robotics-rl-active: #005d5d;
+      --robotics-rl-shadow: rgba(0, 93, 93, 0.13);
+      --venue-top: #e8daff;
+      --venue-top-border: #be95ff;
+      --venue-top-text: #6929c4;
+      --venue-top-shadow: rgba(105, 41, 196, 0.13);
+      --venue: #edf5ff;
+      --venue-border: #a6c8ff;
+      --venue-text: #0043ce;
     }
 
     * {
@@ -134,7 +149,7 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 8px;
+      gap: 12px;
       padding: 18px 38px 6px;
     }
 
@@ -160,36 +175,51 @@
 
     .tab-button.llm-tab {
       background: var(--llm);
-      border-color: #b8d4f7;
+      border-color: var(--llm-border);
+      color: var(--llm-text);
     }
 
     .tab-button.robotics-rl-tab {
       background: var(--robotics-rl);
-      border-color: #bedfcf;
+      border-color: var(--robotics-rl-border);
+      color: var(--robotics-rl-text);
+    }
+
+    .tab-button.llm-tab:hover {
+      border-color: var(--llm-border);
+      color: var(--llm-text);
+    }
+
+    .tab-button.robotics-rl-tab:hover {
+      border-color: var(--robotics-rl-border);
+      color: var(--robotics-rl-text);
+    }
+
+    .tab-button:focus-visible {
+      outline: 3px solid rgba(23, 105, 189, 0.22);
+      outline-offset: 2px;
     }
 
     .tab-button.active {
-      background: #1f2937;
-      border-color: #1f2937;
-      color: #fff;
-      box-shadow: 0 8px 18px rgba(31, 41, 55, 0.14);
-    }
-
-    .tab-button.llm-tab.active,
-    .tab-button.robotics-rl-tab.active {
-      color: #1f2937;
+      background: #f8fafc;
+      border-width: 2px;
+      border-color: #182231;
+      color: #182231;
+      box-shadow: none;
     }
 
     .tab-button.llm-tab.active {
       background: var(--llm);
-      border-color: #7fb3ef;
-      box-shadow: 0 8px 18px rgba(23, 105, 189, 0.14);
+      border-color: var(--llm-active);
+      color: var(--llm-text);
+      box-shadow: none;
     }
 
     .tab-button.robotics-rl-tab.active {
       background: var(--robotics-rl);
-      border-color: #83c2a5;
-      box-shadow: 0 8px 18px rgba(43, 125, 85, 0.12);
+      border-color: var(--robotics-rl-active);
+      color: var(--robotics-rl-text);
+      box-shadow: none;
     }
 
     .papers-list {
@@ -305,28 +335,35 @@
     }
 
     .paper-topic {
+      border: 1px solid transparent;
       font-weight: 700;
     }
 
     .paper-topic.llm {
       background: var(--llm);
+      border-color: var(--llm-border);
+      color: var(--llm-text);
     }
 
     .paper-topic.robotics-rl {
       background: var(--robotics-rl);
+      border-color: var(--robotics-rl-border);
+      color: var(--robotics-rl-text);
     }
 
     .venue {
-      background: #f2f5f8;
-      border: 1px solid #e0e7ef;
+      background: var(--venue);
+      border: 1px solid var(--venue-border);
+      color: var(--venue-text);
+      font-weight: 600;
     }
 
     .venue.top {
-      background: #182231;
-      border-color: #182231;
-      color: #fff;
+      background: var(--venue-top);
+      border-color: var(--venue-top-border);
+      color: var(--venue-top-text);
       font-weight: 700;
-      box-shadow: 0 5px 12px rgba(24, 34, 49, 0.14);
+      box-shadow: 0 5px 12px var(--venue-top-shadow);
     }
 
     .paper p {
@@ -529,35 +566,6 @@
         </div>
 
         <div class="paper" data-topic="language-models">
-          <a class="paper-media" href="https://arxiv.org/abs/2605.25507">
-            <img src="images/credit_assignment_resets.png" alt="Credit Assignment with Resets teaser">
-          </a>
-          <div>
-            <a class="paper-title" href="https://arxiv.org/abs/2605.25507">Credit Assignment with Resets in Language Model Reasoning</a>
-            <div class="authors">
-              <a href="https://www.linkedin.com/in/ankursamanta/">Ankur Samanta</a>,
-              <a href="https://sites.google.com/view/akshayaamagesh/home">Akshayaa Magesh</a>,
-              <strong>Ayush Jain</strong>,
-              <a href="https://www.linkedin.com/in/youliangyu/">Youliang Yu</a>,
-              <a href="https://danielrjiang.github.io/">Daniel Jiang</a>,
-              <a href="https://kavosh8.github.io/">Kavosh Asadi</a>,
-              <a href="https://kavehhassani.github.io/">Kaveh Hassani</a>,
-              <a href="https://www.bme.columbia.edu/paul-sajda">Paul Sajda</a>,
-              <a href="https://www.columbia.edu/~jb3618/">Jalaj Bhandari</a>,
-              <a href="https://sites.google.com/view/yonathan-efroni/home">Yonathan Efroni</a>
-            </div>
-            <div class="paper-meta">
-              <span class="paper-topic llm">Language Models</span>
-              <span class="venue">Preprint</span>
-            </div>
-            <p>We propose reset-based policy optimization methods that improve credit assignment in multi-step language model reasoning by resampling continuations from intermediate reasoning states.</p>
-            <div class="paper-links">
-              <a href="https://arxiv.org/abs/2605.25507">arXiv</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="paper" data-topic="language-models">
           <a class="paper-media" href="https://arxiv.org/abs/2510.19178">
             <img src="images/imbalanced_teaser.png" alt="Imbalanced Gradients teaser">
           </a>
@@ -582,6 +590,64 @@
             <p>Certain tasks produce much larger gradients during RL post-training of multi-task language models, biasing model updates without translating to greater learning gains.</p>
             <div class="paper-links">
               <a href="https://arxiv.org/abs/2510.19178">arXiv</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper" data-topic="language-models">
+          <a class="paper-media" href="https://arxiv.org/abs/2606.30850">
+            <img src="images/bayesbench.png" alt="BayesBench teaser">
+          </a>
+          <div>
+            <a class="paper-title" href="https://arxiv.org/abs/2606.30850">BayesBench: Evaluating LLM Belief Trajectories Under Multi-Turn Evidence Accumulation</a>
+            <div class="authors">
+              <a href="https://www.linkedin.com/in/ankursamanta/">Ankur Samanta</a>,
+              <a href="https://sites.google.com/view/akshayaamagesh/home">Akshayaa Magesh</a>,
+              <a href="https://sites.google.com/view/lancewicki/">Tal Lancewicki</a>,
+              <strong>Ayush Jain</strong>,
+              <a href="https://www.linkedin.com/in/youliangyu/">Youliang Yu</a>,
+              <a href="https://www.bme.columbia.edu/paul-sajda">Paul Sajda</a>,
+              <a href="https://kavehhassani.github.io/">Kaveh Hassani</a>,
+              <a href="https://adityamodi.github.io/">Aditya Modi</a>,
+              <a href="https://danielrjiang.github.io/">Daniel Jiang</a>,
+              <a href="https://sites.google.com/view/yonathan-efroni/home">Yonathan Efroni</a>
+            </div>
+            <div class="paper-meta">
+              <span class="paper-topic llm">Language Models</span>
+              <span class="venue">Preprint</span>
+            </div>
+            <p>We introduce a benchmark for evaluating how closely language models update beliefs like Bayesian reasoners as evidence accumulates over multi-turn interactions.</p>
+            <div class="paper-links">
+              <a href="https://arxiv.org/abs/2606.30850">arXiv</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper" data-topic="language-models">
+          <a class="paper-media" href="https://arxiv.org/abs/2605.25507">
+            <img src="images/credit_assignment_resets.png" alt="Credit Assignment with Resets teaser">
+          </a>
+          <div>
+            <a class="paper-title" href="https://arxiv.org/abs/2605.25507">Credit Assignment with Resets in Language Model Reasoning</a>
+            <div class="authors">
+              <a href="https://www.linkedin.com/in/ankursamanta/">Ankur Samanta</a>,
+              <a href="https://sites.google.com/view/akshayaamagesh/home">Akshayaa Magesh</a>,
+              <strong>Ayush Jain</strong>,
+              <a href="https://www.linkedin.com/in/youliangyu/">Youliang Yu</a>,
+              <a href="https://danielrjiang.github.io/">Daniel Jiang</a>,
+              <a href="https://kavosh8.github.io/">Kavosh Asadi</a>,
+              <a href="https://kavehhassani.github.io/">Kaveh Hassani</a>,
+              <a href="https://www.bme.columbia.edu/paul-sajda">Paul Sajda</a>,
+              <a href="https://www.columbia.edu/~jb3618/">Jalaj Bhandari</a>,
+              <a href="https://sites.google.com/view/yonathan-efroni/home">Yonathan Efroni</a>
+            </div>
+            <div class="paper-meta">
+              <span class="paper-topic llm">Language Models</span>
+              <span class="venue">Preprint</span>
+            </div>
+            <p>We propose reset-based policy optimization methods that improve credit assignment in multi-step language model reasoning by resampling continuations from intermediate reasoning states.</p>
+            <div class="paper-links">
+              <a href="https://arxiv.org/abs/2605.25507">arXiv</a>
             </div>
           </div>
         </div>
