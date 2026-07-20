@@ -5,7 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
   <title>Ayush Jain</title>
-  <link rel="icon" type="image/png" href="images/seal_icon.png">
+  <meta property="og:title" content="Ayush Jain">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ayushj240.github.io/">
+  <meta property="og:image" content="https://ayushj240.github.io/images/ayush2022_2.jpg">
+  <meta property="og:image:width" content="648">
+  <meta property="og:image:height" content="648">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="https://ayushj240.github.io/images/ayush2022_2.jpg">
+  <link rel="icon" type="image/jpeg" href="images/ayush2022_2.jpg">
+  <link rel="apple-touch-icon" href="images/ayush2022_2.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -17,23 +26,28 @@
       --paper: #ffffff;
       --link: #1769bd;
       --link-hover: #c26818;
-      --llm: #e5f6ff;
-      --llm-border: #33b1ff;
-      --llm-text: #00539a;
-      --llm-active: #00539a;
-      --llm-shadow: rgba(0, 83, 154, 0.14);
-      --robotics-rl: #d9fbfb;
-      --robotics-rl-border: #08bdba;
-      --robotics-rl-text: #005d5d;
-      --robotics-rl-active: #005d5d;
-      --robotics-rl-shadow: rgba(0, 93, 93, 0.13);
-      --venue-top: #e8daff;
-      --venue-top-border: #be95ff;
-      --venue-top-text: #6929c4;
-      --venue-top-shadow: rgba(105, 41, 196, 0.13);
-      --venue: #edf5ff;
-      --venue-border: #a6c8ff;
-      --venue-text: #0043ce;
+      --paper-title: #1772d0;
+      --paper-title-hover: #0f559c;
+      --llm: #eef2ff;
+      --llm-border: #a5b4fc;
+      --llm-text: #3730a3;
+      --llm-active: #4f46e5;
+      --llm-shadow: rgba(79, 70, 229, 0.12);
+      --robotics-rl: #ecfdf5;
+      --robotics-rl-border: #6ee7b7;
+      --robotics-rl-text: #065f46;
+      --robotics-rl-active: #047857;
+      --robotics-rl-shadow: rgba(4, 120, 87, 0.12);
+      --venue-top: #173f73;
+      --venue-top-border: #173f73;
+      --venue-top-text: #ffffff;
+      --venue: #eef5fc;
+      --venue-border: #8fb2d5;
+      --venue-text: #234e78;
+      --honor: #fff4cc;
+      --honor-border: #d4a72c;
+      --honor-text: #6b4f00;
+      --honor-shadow: rgba(151, 111, 0, 0.12);
     }
 
     * {
@@ -156,7 +170,7 @@
     .tab-button {
       appearance: none;
       border: 1px solid #dce3eb;
-      border-radius: 999px;
+      border-radius: 4px;
       background: #fff;
       color: #334155;
       cursor: pointer;
@@ -279,6 +293,14 @@
       height: 300px;
     }
 
+    .paper-media.spotlight-media {
+      width: 280px;
+      height: auto;
+      aspect-ratio: 640 / 614;
+      background: #f2f6f8;
+      transform: translateX(-5px);
+    }
+
     .paper-media img,
     .paper-media video {
       width: 100%;
@@ -294,19 +316,32 @@
 
     .paper-title {
       display: inline-block;
-      color: var(--text);
+      color: var(--paper-title);
       font-size: 16px;
       line-height: 1.35;
       font-weight: 700;
       margin-bottom: 5px;
     }
 
-    .paper-title:hover {
-      color: var(--link-hover);
+    .paper-title:hover,
+    .paper-title:focus {
+      color: var(--paper-title-hover);
     }
 
     .authors {
-      color: var(--muted);
+      color: var(--text);
+    }
+
+    .authors a {
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    .authors a:hover,
+    .authors a:focus {
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 2px;
     }
 
     .authors strong {
@@ -325,9 +360,9 @@
     .venue {
       display: inline-flex;
       align-items: center;
-      min-height: 23px;
-      border-radius: 999px;
-      padding: 3px 8px;
+      min-height: 27px;
+      border-radius: 4px;
+      padding: 4px 9px;
       color: #3a4049;
       font-size: 12px;
       line-height: 1;
@@ -352,18 +387,34 @@
     }
 
     .venue {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 100%;
+      min-height: 27px;
+      padding: 4px 9px;
+      border-radius: 4px;
       background: var(--venue);
       border: 1px solid var(--venue-border);
       color: var(--venue-text);
-      font-weight: 600;
+      line-height: 1;
+      text-align: center;
+      font-weight: 700;
+      vertical-align: middle;
+    }
+
+    .venue .venue-emphasis {
+      margin: 0 3px;
+      color: #0b3d6f;
+      font-weight: 800;
     }
 
     .venue.top {
       background: var(--venue-top);
       border-color: var(--venue-top-border);
       color: var(--venue-top-text);
-      font-weight: 700;
-      box-shadow: 0 5px 12px var(--venue-top-shadow);
+      font-weight: 800;
+      box-shadow: none;
     }
 
     .paper p {
@@ -371,10 +422,25 @@
     }
 
     .award {
-      display: inline-block;
-      margin-top: 6px;
-      color: #b33227;
+      display: inline-flex;
+      align-items: center;
+      min-height: 27px;
+      margin-top: 8px;
+      padding: 4px 9px;
+      border: 1px solid var(--honor-border);
+      border-radius: 4px;
+      background: var(--honor);
+      color: var(--honor-text);
+      font-size: 13px;
+      line-height: 1.25;
       font-weight: 700;
+      box-shadow: 0 4px 10px var(--honor-shadow);
+    }
+
+    a.award:hover {
+      border-color: #b88700;
+      background: #ffedaa;
+      color: #563f00;
     }
 
     .paper-links {
@@ -385,17 +451,24 @@
     }
 
     .paper-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 27px;
       border: 1px solid #dbe1e8;
-      border-radius: 999px;
+      border-radius: 4px;
       background: #fff;
-      padding: 3px 9px;
+      padding: 4px 9px;
+      line-height: 1;
       font-size: 13px;
       font-weight: 600;
     }
 
-    .paper-links a:hover {
-      background: #fff8ef;
-      border-color: #f0c384;
+    .paper-links a:hover,
+    .paper-links a:focus {
+      background: var(--venue);
+      border-color: var(--venue-border);
+      color: var(--venue-text);
     }
 
     .compact-section {
@@ -455,6 +528,13 @@
         width: 100%;
         height: auto;
         aspect-ratio: 16 / 9;
+      }
+
+      .paper-media.spotlight-media {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 640 / 614;
+        transform: none;
       }
     }
   </style>
@@ -529,8 +609,8 @@
               <a href="https://sites.google.com/view/yonathan-efroni/home">Yonathan Efroni</a>
             </div>
             <div class="paper-meta">
-              <span class="paper-topic llm">Language Models</span>
               <span class="venue top">ICML 2026</span>
+              <span class="paper-topic llm">LLM</span>
             </div>
             <p>We show that language models can explicitly self-localize errors in incorrect reasoning when it is structured as discrete, semantically coherent thought steps.</p>
             <div class="paper-links">
@@ -541,7 +621,7 @@
 
         <div class="paper" data-topic="robotics-rl">
           <a class="paper-media tall" href="https://arxiv.org/abs/2510.09096">
-            <video muted autoplay loop playsinline src="images/lfcd_teaser.mp4" aria-label="Learning from Constrained Demonstrators teaser"></video>
+            <video muted autoplay loop playsinline src="images/lfcd_teaser_cropped.mp4" aria-label="Learning from Constrained Demonstrators teaser"></video>
           </a>
           <div>
             <a class="paper-title" href="https://arxiv.org/abs/2510.09096">When a Robot is More Capable than a Human: Learning from Constrained Demonstrators</a>
@@ -553,14 +633,40 @@
               <a href="https://ebiyik.github.io/">Erdem B&#305;y&#305;k</a>
             </div>
             <div class="paper-meta">
-              <span class="paper-topic robotics-rl">Robotics | RL Algorithms</span>
               <span class="venue top">ICLR 2026</span>
+              <span class="paper-topic robotics-rl">RL</span>
             </div>
             <p>We propose an inverse RL method for learning from constrained demonstrators and finding shorter trajectories to the goal.</p>
             <div class="paper-links">
               <a href="https://arxiv.org/abs/2510.09096">arXiv</a>
               <a href="https://openreview.net/forum?id=BvirMuKWV1">Paper</a>
               <a href="https://sites.google.com/view/constrainedexpert">Project Page</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper" data-topic="robotics-rl">
+          <a class="paper-media spotlight-media" href="https://ryanlindeborg.com/papers/side_effect_critics.pdf">
+            <video muted autoplay loop playsinline src="images/side_effects_teaser.mp4" aria-label="Side Effect Critics teaser"></video>
+          </a>
+          <div>
+            <a class="paper-title" href="https://ryanlindeborg.com/papers/side_effect_critics.pdf">Anticipating Unintended Robot Behaviors with Side Effect Critics</a>
+            <div class="authors">
+              <a href="https://ryanlindeborg.com/">Ryan Lindeborg</a>*,
+              Richard Jiankun Peng*,
+              <strong>Ayush Jain</strong>,
+              <a href="https://www.jessezhang.net/">Jesse Zhang</a>,
+              <a href="https://abraranwar.github.io/">Abrar Anwar</a>,
+              <a href="https://jessethomason.com/">Jesse Thomason</a>
+            </div>
+            <div class="paper-meta">
+              <span class="venue"><span>Rethinking Safety Workshop at RSS 2026</span></span>
+              <span class="paper-topic robotics-rl">RL</span>
+            </div>
+            <span class="award">Spotlight Presentation</span>
+            <p>We train Side Effect Critics from pretrained vision-language-action models to anticipate unintended changes before robot actions are executed.</p>
+            <div class="paper-links">
+              <a href="https://ryanlindeborg.com/papers/side_effect_critics.pdf">Paper</a>
             </div>
           </div>
         </div>
@@ -584,8 +690,8 @@
               <a href="https://sites.google.com/view/yonathan-efroni/home">Yonathan Efroni</a>
             </div>
             <div class="paper-meta">
-              <span class="paper-topic llm">Language Models</span>
               <span class="venue top">EACL 2026</span>
+              <span class="paper-topic llm">LLM</span>
             </div>
             <p>Certain tasks produce much larger gradients during RL post-training of multi-task language models, biasing model updates without translating to greater learning gains.</p>
             <div class="paper-links">
@@ -613,8 +719,8 @@
               <a href="https://sites.google.com/view/yonathan-efroni/home">Yonathan Efroni</a>
             </div>
             <div class="paper-meta">
-              <span class="paper-topic llm">Language Models</span>
               <span class="venue">Preprint</span>
+              <span class="paper-topic llm">LLM</span>
             </div>
             <p>We introduce a benchmark for evaluating how closely language models update beliefs like Bayesian reasoners as evidence accumulates over multi-turn interactions.</p>
             <div class="paper-links">
@@ -642,8 +748,8 @@
               <a href="https://sites.google.com/view/yonathan-efroni/home">Yonathan Efroni</a>
             </div>
             <div class="paper-meta">
-              <span class="paper-topic llm">Language Models</span>
               <span class="venue">Preprint</span>
+              <span class="paper-topic llm">LLM</span>
             </div>
             <p>We propose reset-based policy optimization methods that improve credit assignment in multi-step language model reasoning by resampling continuations from intermediate reasoning states.</p>
             <div class="paper-links">
@@ -671,8 +777,8 @@
               <a href="https://kavehhassani.github.io/">Kaveh Hassani</a>
             </div>
             <div class="paper-meta">
-              <span class="paper-topic llm">Language Models</span>
               <span class="venue">Preprint</span>
+              <span class="paper-topic llm">LLM</span>
             </div>
             <p>Language models improve by reinforcing their own debate consensus across diverse reasoning paths.</p>
             <div class="paper-links">
@@ -695,8 +801,8 @@
               <a href="https://ebiyik.github.io/">Erdem B&#305;y&#305;k<sup>&#8224;</sup></a>
             </div>
             <div class="paper-meta">
-              <span class="paper-topic robotics-rl">Robotics | RL Algorithms</span>
               <span class="venue top">NeurIPS 2025</span>
+              <span class="paper-topic robotics-rl">RL</span>
             </div>
             <p>Actor-free Q-learning in continuous action spaces by learning a wire-fitted Q-function.</p>
             <div class="paper-links">
@@ -722,10 +828,10 @@
               <a href="https://clvrai.com/web_lim/">Joseph J. Lim</a>
             </div>
             <div class="paper-meta">
-              <span class="paper-topic robotics-rl">Robotics | RL Algorithms</span>
               <span class="venue top">RLC 2025, Reinforcement Learning Conference</span>
+              <span class="paper-topic robotics-rl">RL</span>
             </div>
-            <a class="award" href="https://rl-conference.cc/RLC2025Awards.html">Outstanding Paper Award on Empirical Reinforcement Learning Research</a>
+            <a class="award" href="https://rl-conference.cc/2025/RLC2025Awards.html">Outstanding Paper Award on Empirical Reinforcement Learning Research</a>
             <p>We identify that TD3 gets stuck in local optima in tasks with complex Q-functions and propose a new actor architecture to find better optima.</p>
             <div class="paper-links">
               <a href="https://openreview.net/forum?id=H3jcTxcvvJ">Paper</a>
@@ -748,8 +854,8 @@
               <a href="https://clvrai.com/web_lim/">Joseph J. Lim</a>
             </div>
             <div class="paper-meta">
-              <span class="paper-topic robotics-rl">Robotics | RL Algorithms</span>
               <span class="venue top">ICLR 2025</span>
+              <span class="paper-topic robotics-rl">RL</span>
             </div>
             <p>We introduce behavior-sharing for efficient multitask reinforcement learning, complementary with parameter-sharing and data-sharing.</p>
             <div class="paper-links">
@@ -774,8 +880,8 @@
               <a href="https://clvrai.com/web_lim/">Joseph J. Lim</a>
             </div>
             <div class="paper-meta">
-              <span class="paper-topic robotics-rl">Robotics | RL Algorithms</span>
               <span class="venue top">ICLR 2022</span>
+              <span class="paper-topic robotics-rl">RL</span>
             </div>
             <p>For optimal decision-making under a varying action space, we learn relations between available actions using a graph-attention policy architecture.</p>
             <div class="paper-links">
@@ -799,8 +905,8 @@
               <a href="https://clvrai.com/web_lim/">Joseph J. Lim</a>
             </div>
             <div class="paper-meta">
-              <span class="paper-topic robotics-rl">Robotics | RL Algorithms</span>
               <span class="venue top">ICML 2020</span>
+              <span class="paper-topic robotics-rl">RL</span>
             </div>
             <p>Our RL framework enables agents to solve sequential decision-making tasks even when available actions have not been seen before.</p>
             <div class="paper-links">
@@ -828,8 +934,8 @@
               <a href="http://web.iitd.ac.in/~sumeet">Sumeet Agarwal</a>
             </div>
             <div class="paper-meta">
-              <span class="paper-topic llm">Language Models</span>
               <span class="venue">COLING 2018 Workshop</span>
+              <span class="paper-topic llm">LLM</span>
             </div>
             <p>This work investigates the extent to which word order choices in Hindi are influenced by the drive to minimize information variance in a sentence.</p>
           </div>
