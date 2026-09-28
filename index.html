@@ -20,47 +20,37 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <style>
     :root {
-      --text: #202225;
-      --muted: #5f6872;
-      --faint: #eef1f4;
+      --text: #20252b;
+      --muted: #606873;
+      --faint: #e8ebee;
       --paper: #ffffff;
-      --link: #1769bd;
-      --link-hover: #c26818;
-      --paper-title: #1772d0;
-      --paper-title-hover: #0f559c;
-      --llm: #eef2ff;
-      --llm-border: #a5b4fc;
-      --llm-text: #3730a3;
-      --llm-active: #4f46e5;
-      --llm-shadow: rgba(79, 70, 229, 0.12);
-      --robotics-rl: #ecfdf5;
-      --robotics-rl-border: #6ee7b7;
-      --robotics-rl-text: #065f46;
-      --robotics-rl-active: #047857;
-      --robotics-rl-shadow: rgba(4, 120, 87, 0.12);
-      --venue-top: #173f73;
-      --venue-top-border: #173f73;
-      --venue-top-text: #ffffff;
-      --venue: #eef5fc;
-      --venue-border: #8fb2d5;
-      --venue-text: #234e78;
-      --honor: #fff4cc;
-      --honor-border: #d4a72c;
-      --honor-text: #6b4f00;
-      --honor-shadow: rgba(151, 111, 0, 0.12);
+      --link: #1565c0;
+      --link-hover: #0d47a1;
+      --accent: #304c70;
+      --neutral: #f3f4f5;
+      --accent-tint: #f0f3f7;
+      --honor: #fff3cd;
+      --honor-border: #c48a16;
+      --honor-text: #744b08;
+      color-scheme: light;
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      background: #ffffff;
+    }
+
     body {
       margin: 0;
+      min-height: 100vh;
       color: var(--text);
-      background: #f7f8fa;
+      background: var(--paper);
       font-family: "Inter", Verdana, Helvetica, sans-serif;
       font-size: 15px;
-      line-height: 1.55;
+      line-height: 1.65;
     }
 
     a {
@@ -72,6 +62,14 @@
     a:hover,
     a:focus {
       color: var(--link-hover);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--link);
+      outline-offset: 4px;
     }
 
     em {
@@ -82,15 +80,11 @@
     .page {
       width: min(1080px, calc(100% - 32px));
       margin: 0 auto;
-      padding: 34px 0 42px;
+      padding: 40px 0 48px;
     }
 
     .shell {
       background: var(--paper);
-      border: 1px solid #e5e9ef;
-      border-radius: 8px;
-      box-shadow: 0 18px 50px rgba(24, 36, 54, 0.06);
-      overflow: hidden;
     }
 
     .intro {
@@ -98,7 +92,7 @@
       grid-template-columns: 1fr 220px;
       gap: 34px;
       align-items: center;
-      padding: 34px 38px 28px;
+      padding: 34px 38px 36px;
       border-bottom: 1px solid var(--faint);
     }
 
@@ -107,7 +101,7 @@
       font-size: 36px;
       line-height: 1.05;
       font-weight: 700;
-      letter-spacing: 0;
+      letter-spacing: -0.8px;
     }
 
     .intro p {
@@ -143,7 +137,7 @@
     }
 
     .section {
-      padding: 26px 38px 4px;
+      padding: 32px 38px 4px;
     }
 
     .section-heading {
@@ -163,102 +157,37 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
       padding: 18px 38px 6px;
     }
 
     .tab-button {
       appearance: none;
-      border: 1px solid #dce3eb;
+      border: 1px solid transparent;
       border-radius: 4px;
-      background: #fff;
-      color: #334155;
+      background: var(--neutral);
+      color: var(--muted);
       cursor: pointer;
       font: inherit;
       font-size: 14px;
-      font-weight: 700;
-      line-height: 1;
+      font-weight: 500;
+      line-height: 1.4;
       padding: 9px 14px;
-      transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+      transition: background 0.15s ease, color 0.15s ease;
     }
 
     .tab-button:hover {
-      border-color: #b8c7d8;
+      background: var(--accent-tint);
       color: var(--link);
     }
 
-    .tab-button.llm-tab {
-      background: var(--llm);
-      border-color: var(--llm-border);
-      color: var(--llm-text);
-    }
-
-    .tab-button.robotics-rl-tab {
-      background: var(--robotics-rl);
-      border-color: var(--robotics-rl-border);
-      color: var(--robotics-rl-text);
-    }
-
-    .tab-button.llm-tab:hover {
-      border-color: var(--llm-border);
-      color: var(--llm-text);
-    }
-
-    .tab-button.robotics-rl-tab:hover {
-      border-color: var(--robotics-rl-border);
-      color: var(--robotics-rl-text);
-    }
-
-    .tab-button:focus-visible {
-      outline: 3px solid rgba(23, 105, 189, 0.22);
-      outline-offset: 2px;
-    }
-
     .tab-button.active {
-      background: #f8fafc;
-      border-width: 2px;
-      border-color: #182231;
-      color: #182231;
-      box-shadow: none;
-    }
-
-    .tab-button.llm-tab.active {
-      background: var(--llm);
-      border-color: var(--llm-active);
-      color: var(--llm-text);
-      box-shadow: none;
-    }
-
-    .tab-button.robotics-rl-tab.active {
-      background: var(--robotics-rl);
-      border-color: var(--robotics-rl-active);
-      color: var(--robotics-rl-text);
-      box-shadow: none;
+      background: var(--accent);
+      color: var(--paper);
     }
 
     .papers-list {
       padding: 8px 38px 12px;
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      min-height: 24px;
-      padding: 3px 9px;
-      border-radius: 999px;
-      color: #303236;
-      letter-spacing: 0;
-      text-transform: none;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .tag.llm {
-      background: var(--llm);
-    }
-
-    .tag.robotics-rl {
-      background: var(--robotics-rl);
     }
 
     .paper {
@@ -266,9 +195,12 @@
       grid-template-columns: 270px 1fr;
       gap: 28px;
       align-items: center;
-      padding: 18px 0 20px;
-      border-bottom: 1px solid #edf1f5;
-      transition: background 0.15s ease;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--faint);
+    }
+
+    .paper > div {
+      min-width: 0;
     }
 
     .paper[hidden] {
@@ -282,23 +214,16 @@
     .paper-media {
       width: 270px;
       height: 174px;
-      border-radius: 6px;
+      border-radius: 4px;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
     }
 
-    .paper-media.tall {
-      height: 300px;
-    }
-
+    .paper-media.tall,
     .paper-media.spotlight-media {
-      width: 280px;
-      height: auto;
-      aspect-ratio: 640 / 614;
-      background: #f2f6f8;
-      transform: translateX(-5px);
+      height: 250px;
     }
 
     .paper-media img,
@@ -316,16 +241,16 @@
 
     .paper-title {
       display: inline-block;
-      color: var(--paper-title);
+      color: var(--link);
       font-size: 16px;
-      line-height: 1.35;
-      font-weight: 700;
+      line-height: 1.45;
+      font-weight: 600;
       margin-bottom: 5px;
     }
 
     .paper-title:hover,
     .paper-title:focus {
-      color: var(--paper-title-hover);
+      color: var(--link-hover);
     }
 
     .authors {
@@ -352,7 +277,8 @@
     .paper-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      align-items: center;
+      gap: 8px 12px;
       margin-top: 8px;
     }
 
@@ -360,61 +286,42 @@
     .venue {
       display: inline-flex;
       align-items: center;
-      min-height: 27px;
-      border-radius: 4px;
-      padding: 4px 9px;
-      color: #3a4049;
-      font-size: 12px;
-      line-height: 1;
+      min-height: 24px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
       font-weight: 500;
     }
 
     .paper-topic {
-      border: 1px solid transparent;
-      font-weight: 700;
-    }
-
-    .paper-topic.llm {
-      background: var(--llm);
-      border-color: var(--llm-border);
-      color: var(--llm-text);
-    }
-
-    .paper-topic.robotics-rl {
-      background: var(--robotics-rl);
-      border-color: var(--robotics-rl-border);
-      color: var(--robotics-rl-text);
+      padding: 2px 7px;
+      border-radius: 3px;
+      background: var(--neutral);
+      font-size: 12px;
     }
 
     .venue {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
       max-width: 100%;
-      min-height: 27px;
-      padding: 4px 9px;
-      border-radius: 4px;
-      background: var(--venue);
-      border: 1px solid var(--venue-border);
-      color: var(--venue-text);
-      line-height: 1;
-      text-align: center;
+      color: var(--text);
+      font-size: 14px;
       font-weight: 700;
-      vertical-align: middle;
+    }
+
+    .venue.preprint {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 500;
     }
 
     .venue .venue-emphasis {
       margin: 0 3px;
-      color: #0b3d6f;
-      font-weight: 800;
+      color: var(--text);
+      font-weight: 600;
     }
 
     .venue.top {
-      background: var(--venue-top);
-      border-color: var(--venue-top-border);
-      color: var(--venue-top-text);
-      font-weight: 800;
-      box-shadow: none;
+      color: var(--text);
+      font-weight: 700;
     }
 
     .paper p {
@@ -426,27 +333,27 @@
       align-items: center;
       min-height: 27px;
       margin-top: 8px;
-      padding: 4px 9px;
+      padding: 7px 11px;
       border: 1px solid var(--honor-border);
+      border-left-width: 3px;
       border-radius: 4px;
       background: var(--honor);
       color: var(--honor-text);
       font-size: 13px;
-      line-height: 1.25;
+      line-height: 1.5;
       font-weight: 700;
-      box-shadow: 0 4px 10px var(--honor-shadow);
     }
 
-    a.award:hover {
-      border-color: #b88700;
-      background: #ffedaa;
-      color: #563f00;
+    a.award:hover,
+    a.award:focus {
+      background: #ffe8a3;
+      color: #5b3900;
     }
 
     .paper-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 7px;
+      gap: 6px 16px;
       margin-top: 8px;
     }
 
@@ -454,25 +361,24 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 27px;
-      border: 1px solid #dbe1e8;
-      border-radius: 4px;
-      background: #fff;
-      padding: 4px 9px;
-      line-height: 1;
+      min-height: 28px;
+      padding: 2px 0;
+      line-height: 1.5;
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 500;
+      text-decoration: underline;
+      text-decoration-color: #bdc8d5;
+      text-underline-offset: 4px;
     }
 
     .paper-links a:hover,
     .paper-links a:focus {
-      background: var(--venue);
-      border-color: var(--venue-border);
-      color: var(--venue-text);
+      color: var(--link-hover);
+      text-decoration-color: currentColor;
     }
 
     .compact-section {
-      padding: 18px 38px;
+      padding: 26px 38px;
       border-top: 1px solid var(--faint);
     }
 
@@ -530,11 +436,11 @@
         aspect-ratio: 16 / 9;
       }
 
+      .paper-media.tall,
       .paper-media.spotlight-media {
         width: 100%;
         height: auto;
-        aspect-ratio: 640 / 614;
-        transform: none;
+        aspect-ratio: 1;
       }
     }
   </style>
@@ -549,13 +455,15 @@
           <p>
             I am a Research Scientist at Meta
             <img class="meta-logo" src="images/meta-logo-facebook.svg" alt="Meta">
-            in the Applied <b>Reinforcement Learning</b> team. I build RL algorithms for agents that act under
-            complex action spaces across <b>recommender systems, robotics, and LLMs</b>.
+            in the Applied <b>Reinforcement Learning</b> team. My research focuses on RL for
+            general-purpose agents, with an emphasis on long-horizon decision-making in large,
+            high-dimensional, changing, or otherwise complex action spaces. My experience spans <b>computer-use agents,
+            LLM post-training, recommender systems, and robotics</b>.
           </p>
           <p>
             I completed my PhD at USC with Prof.
             <a href="https://clvrai.com/web_lim/">Joseph J. Lim</a> and Prof.
-            <a href="https://ebiyik.github.io/">Erdem B&#305;y&#305;k</a>. I have worked or interned at
+            <a href="https://ebiyik.github.io/">Erdem B&#305;y&#305;k</a>. Previously, I have worked and interned at
             <a href="https://about.meta.com/realitylabs/">Meta Reality Labs</a>,
             <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-montreal/">Microsoft Research Montreal</a>,
             <a href="https://clova.ai/en/research/research-areas.html">Naver AI</a>, and
@@ -588,6 +496,35 @@
       </div>
 
       <div class="papers-list">
+
+        <div class="paper" data-topic="language-models">
+          <a class="paper-media" href="https://arxiv.org/abs/2605.25507">
+            <img src="images/credit_assignment_resets.png" alt="Credit Assignment with Resets teaser">
+          </a>
+          <div>
+            <a class="paper-title" href="https://arxiv.org/abs/2605.25507">Credit Assignment with Resets in Language Model Reasoning</a>
+            <div class="authors">
+              <a href="https://www.linkedin.com/in/ankursamanta/">Ankur Samanta</a>,
+              <a href="https://sites.google.com/view/akshayaamagesh/home">Akshayaa Magesh</a>,
+              <strong>Ayush Jain</strong>,
+              <a href="https://www.linkedin.com/in/youliangyu/">Youliang Yu</a>,
+              <a href="https://danielrjiang.github.io/">Daniel Jiang</a>,
+              <a href="https://kavosh8.github.io/">Kavosh Asadi</a>,
+              <a href="https://kavehhassani.github.io/">Kaveh Hassani</a>,
+              <a href="https://www.bme.columbia.edu/paul-sajda">Paul Sajda</a>,
+              <a href="https://www.columbia.edu/~jb3618/">Jalaj Bhandari</a>,
+              <a href="https://sites.google.com/view/yonathan-efroni/home">Yonathan Efroni</a>
+            </div>
+            <div class="paper-meta">
+              <span class="venue top">NeurIPS 2026</span>
+              <span class="paper-topic llm">LLM</span>
+            </div>
+            <p>We propose reset-based policy optimization methods that improve credit assignment in multi-step language model reasoning by resampling continuations from intermediate reasoning states.</p>
+            <div class="paper-links">
+              <a href="https://arxiv.org/abs/2605.25507">arXiv</a>
+            </div>
+          </div>
+        </div>
 
         <div class="paper" data-topic="language-models">
           <a class="paper-media" href="https://arxiv.org/abs/2602.02416">
@@ -719,7 +656,7 @@
               <a href="https://sites.google.com/view/yonathan-efroni/home">Yonathan Efroni</a>
             </div>
             <div class="paper-meta">
-              <span class="venue">Preprint</span>
+              <span class="venue preprint">Preprint</span>
               <span class="paper-topic llm">LLM</span>
             </div>
             <p>We introduce a benchmark for evaluating how closely language models update beliefs like Bayesian reasoners as evidence accumulates over multi-turn interactions.</p>
@@ -729,31 +666,29 @@
           </div>
         </div>
 
-        <div class="paper" data-topic="language-models">
-          <a class="paper-media" href="https://arxiv.org/abs/2605.25507">
-            <img src="images/credit_assignment_resets.png" alt="Credit Assignment with Resets teaser">
+        <div class="paper" data-topic="robotics-rl">
+          <a class="paper-media" href="https://arxiv.org/abs/2410.11833">
+            <img src="images/teaser_savo.png" alt="SAVO teaser">
           </a>
           <div>
-            <a class="paper-title" href="https://arxiv.org/abs/2605.25507">Credit Assignment with Resets in Language Model Reasoning</a>
+            <a class="paper-title" href="https://arxiv.org/abs/2410.11833">Mitigating Suboptimality of Deterministic Policy Gradients in Complex Q-functions</a>
             <div class="authors">
-              <a href="https://www.linkedin.com/in/ankursamanta/">Ankur Samanta</a>,
-              <a href="https://sites.google.com/view/akshayaamagesh/home">Akshayaa Magesh</a>,
               <strong>Ayush Jain</strong>,
-              <a href="https://www.linkedin.com/in/youliangyu/">Youliang Yu</a>,
-              <a href="https://danielrjiang.github.io/">Daniel Jiang</a>,
-              <a href="https://kavosh8.github.io/">Kavosh Asadi</a>,
-              <a href="https://kavehhassani.github.io/">Kaveh Hassani</a>,
-              <a href="https://www.bme.columbia.edu/paul-sajda">Paul Sajda</a>,
-              <a href="https://www.columbia.edu/~jb3618/">Jalaj Bhandari</a>,
-              <a href="https://sites.google.com/view/yonathan-efroni/home">Yonathan Efroni</a>
+              <a href="https://rowing0914.github.io/">Norio Kosaka</a>,
+              <a href="https://xhlsgit.github.io/">Xinhu Li</a>,
+              <a href="https://bi.snu.ac.kr/~kmkim/">Kyung-Min Kim</a>,
+              <a href="https://ebiyik.github.io/">Erdem B&#305;y&#305;k</a>,
+              <a href="https://clvrai.com/web_lim/">Joseph J. Lim</a>
             </div>
             <div class="paper-meta">
-              <span class="venue">Preprint</span>
-              <span class="paper-topic llm">LLM</span>
+              <span class="venue top">RLC 2025, Reinforcement Learning Conference</span>
+              <span class="paper-topic robotics-rl">RL</span>
             </div>
-            <p>We propose reset-based policy optimization methods that improve credit assignment in multi-step language model reasoning by resampling continuations from intermediate reasoning states.</p>
+            <a class="award" href="https://rl-conference.cc/2025/RLC2025Awards.html">Outstanding Paper Award on Empirical Reinforcement Learning Research</a>
+            <p>We identify that TD3 gets stuck in local optima in tasks with complex Q-functions and propose a new actor architecture to find better optima.</p>
             <div class="paper-links">
-              <a href="https://arxiv.org/abs/2605.25507">arXiv</a>
+              <a href="https://openreview.net/forum?id=H3jcTxcvvJ">Paper</a>
+              <a href="https://arxiv.org/abs/2410.11833">arXiv</a>
             </div>
           </div>
         </div>
@@ -777,7 +712,7 @@
               <a href="https://kavehhassani.github.io/">Kaveh Hassani</a>
             </div>
             <div class="paper-meta">
-              <span class="venue">Preprint</span>
+              <span class="venue preprint">Preprint</span>
               <span class="paper-topic llm">LLM</span>
             </div>
             <p>Language models improve by reinforcing their own debate consensus across diverse reasoning paths.</p>
@@ -809,33 +744,6 @@
               <a href="https://arxiv.org/abs/2510.18828">arXiv</a>
               <a href="https://github.com/USC-Lira/Q3C">Code</a>
               <a href="https://neurips.cc/virtual/2025/loc/san-diego/poster/118279">Talk</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="paper" data-topic="robotics-rl">
-          <a class="paper-media" href="https://arxiv.org/abs/2410.11833">
-            <img src="images/teaser_savo.png" alt="SAVO teaser">
-          </a>
-          <div>
-            <a class="paper-title" href="https://arxiv.org/abs/2410.11833">Mitigating Suboptimality of Deterministic Policy Gradients in Complex Q-functions</a>
-            <div class="authors">
-              <strong>Ayush Jain</strong>,
-              <a href="https://rowing0914.github.io/">Norio Kosaka</a>,
-              <a href="https://xhlsgit.github.io/">Xinhu Li</a>,
-              <a href="https://bi.snu.ac.kr/~kmkim/">Kyung-Min Kim</a>,
-              <a href="https://ebiyik.github.io/">Erdem B&#305;y&#305;k</a>,
-              <a href="https://clvrai.com/web_lim/">Joseph J. Lim</a>
-            </div>
-            <div class="paper-meta">
-              <span class="venue top">RLC 2025, Reinforcement Learning Conference</span>
-              <span class="paper-topic robotics-rl">RL</span>
-            </div>
-            <a class="award" href="https://rl-conference.cc/2025/RLC2025Awards.html">Outstanding Paper Award on Empirical Reinforcement Learning Research</a>
-            <p>We identify that TD3 gets stuck in local optima in tasks with complex Q-functions and propose a new actor architecture to find better optima.</p>
-            <div class="paper-links">
-              <a href="https://openreview.net/forum?id=H3jcTxcvvJ">Paper</a>
-              <a href="https://arxiv.org/abs/2410.11833">arXiv</a>
             </div>
           </div>
         </div>
@@ -940,6 +848,7 @@
             <p>This work investigates the extent to which word order choices in Hindi are influenced by the drive to minimize information variance in a sentence.</p>
           </div>
         </div>
+
       </div>
 
       <div class="compact-section">
@@ -958,7 +867,7 @@
       <div class="compact-section">
         <h2>Reviewing</h2>
         <ul>
-          <li><strong>ICLR:</strong> 2023, 2024, 2025, 2026</li>
+          <li><strong>ICLR:</strong> 2023, 2024, 2025, 2026, 2027</li>
           <li><strong>NeurIPS:</strong> 2023, 2024, 2025, 2026</li>
           <li><strong>ICML:</strong> 2025, 2026</li>
           <li><strong>RLC:</strong> 2025, 2026</li>
